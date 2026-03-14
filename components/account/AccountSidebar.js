@@ -26,8 +26,8 @@ export default function AccountSidebar({ logout }) {
   const isActive = (path) => router.pathname === path;
 
   return (
-    <aside className="w-full lg:w-1/4 bg-white rounded-xl shadow-sm border border-[#F0EBE3] p-5 space-y-4">
-      <h2 className="text-sm font-bold text-[#0F1923] uppercase tracking-wider mb-5">
+    <aside className="w-full lg:w-1/4 bg-white rounded-lg shadow-sm border border-blue-200 p-5 space-y-4">
+      <h2 className="text-sm font-bold text-[#1F2D3D] uppercase tracking-wider mb-5">
         My Account
       </h2>
 
@@ -38,18 +38,18 @@ export default function AccountSidebar({ logout }) {
               href={href}
               className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 isActive(href)
-                  ? "bg-[#0F1923] text-white"
-                  : "text-[#5A6171] hover:bg-[#F5F0E8] hover:text-[#0F1923]"
+                  ? "bg-[#1A5DAB] text-white"
+                  : "text-gray-600 hover:bg-[#E6F0FA] hover:text-[#1A5DAB]"
               }`}
             >
-              <Icon size={16} className={isActive(href) ? "text-[#C9A96E]" : ""} />
+              <Icon size={16} className={isActive(href) ? "text-[#4C9EFF]" : ""} />
               {label}
             </Link>
           </li>
         ))}
       </ul>
 
-      <hr className="border-[#F0EBE3] my-3" />
+      <hr className="border-blue-200 my-3" />
 
       <ul className="space-y-1">
         {settingsLinks.map(({ label, href, icon: Icon }) => (
@@ -58,11 +58,11 @@ export default function AccountSidebar({ logout }) {
               href={href}
               className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 isActive(href)
-                  ? "bg-[#0F1923] text-white"
-                  : "text-[#5A6171] hover:bg-[#F5F0E8] hover:text-[#0F1923]"
+                  ? "bg-[#1A5DAB] text-white"
+                  : "text-gray-600 hover:bg-[#E6F0FA] hover:text-[#1A5DAB]"
               }`}
             >
-              <Icon size={16} className={isActive(href) ? "text-[#C9A96E]" : ""} />
+              <Icon size={16} className={isActive(href) ? "text-[#4C9EFF]" : ""} />
               {label}
             </Link>
           </li>
@@ -71,7 +71,7 @@ export default function AccountSidebar({ logout }) {
 
       <button
         onClick={logout}
-        className="w-full mt-4 flex items-center justify-center gap-2 px-6 py-2.5 text-[#B76E79] border border-[#B76E79]/30 rounded-lg font-medium hover:bg-[#B76E79]/5 transition-all duration-200"
+        className="w-full mt-4 flex items-center justify-center gap-2 px-6 py-2.5 text-red-600 border border-red-300/50 rounded-lg font-medium hover:bg-red-50 transition-all duration-200"
       >
         <FiLogOut size={16} />
         Logout

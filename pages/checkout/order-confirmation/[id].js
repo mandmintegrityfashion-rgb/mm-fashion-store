@@ -92,7 +92,7 @@ export default function OrderConfirmation() {
       <div className="flex justify-center">
         <button
           onClick={handleContinueShopping}
-          className="px-6 py-3 rounded-lg bg-[#0F1923] hover:bg-[#1A2332] text-white font-semibold cursor-pointer transition"
+          className="px-6 py-3 rounded-lg bg-[#1A5DAB] hover:bg-[#2B5EBF] text-white font-semibold cursor-pointer transition"
         >
           Continue Shopping
         </button>

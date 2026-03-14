@@ -48,7 +48,7 @@ export default function ComparePage() {
         />
       </Head>
 
-      <div className={`${playfair.className} bg-[#FDFBF7] min-h-screen`}>
+      <div className={`${playfair.className} bg-[#F7FAFC] min-h-screen`}>
         <Navbar />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
@@ -68,12 +68,12 @@ export default function ComparePage() {
           >
             <h1
               className="text-5xl font-bold mb-4 font-serif"
-              className="text-4xl sm:text-5xl font-bold mb-4 text-[#0F1923]"
+              className="text-4xl sm:text-5xl font-bold mb-4 text-[#1F2D3D]"
             >
               Product Comparison
             </h1>
-            <div className="w-12 h-0.5 bg-[#C9A96E] mb-4"></div>
-            <p className="text-[#5A6171] text-lg">
+            <div className="w-12 h-0.5 bg-[#4C9EFF] mb-4"></div>
+            <p className="text-gray-600 text-lg">
               {compareList.length === 0
                 ? "Add products to compare them side by side."
                 : `Comparing ${compareList.length} product${compareList.length !== 1 ? "s" : ""}`}
@@ -85,7 +85,7 @@ export default function ComparePage() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center py-20 bg-white rounded-xl shadow-sm border border-[#F0EBE3]"
+              className="text-center py-20 bg-white rounded-lg shadow-sm border border-blue-200"
             >
               <div className="text-6xl mb-4">📊</div>
               <h2 className="text-2xl font-bold text-gray-900 mb-3">No Products to Compare</h2>
@@ -97,7 +97,7 @@ export default function ComparePage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-3 rounded-lg font-semibold text-white transition-all duration-300"
-                  className="px-8 py-3 rounded-lg font-semibold text-white bg-[#0F1923] hover:bg-[#1A2332] transition-all duration-300"
+                  className="px-8 py-3 rounded-lg font-semibold text-white bg-[#1A5DAB] hover:bg-[#2B5EBF] transition-all duration-300"
                 >
                   Browse Products
                 </motion.button>
@@ -115,7 +115,7 @@ export default function ComparePage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={clearCompare}
-                  className="px-4 py-2 rounded-lg text-[#B76E79] border border-[#B76E79]/30 hover:bg-[#B76E79]/5 transition-all duration-300 font-semibold"
+                  className="px-4 py-2 rounded-lg text-red-600 border border-red-300/30 hover:bg-red-50 transition-all duration-300 font-semibold"
                 >
                   Clear All
                 </motion.button>
@@ -125,11 +125,11 @@ export default function ComparePage() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="overflow-x-auto rounded-xl shadow-sm border border-[#F0EBE3] bg-white"
+                className="overflow-x-auto rounded-lg shadow-sm border border-blue-200 bg-white"
               >
                 <table className="w-full text-left text-sm">
                   <thead>
-                    <tr className="bg-[#F5F0E8] border-b border-[#E8E0D4]">
+                    <tr className="bg-[#E6F0FA] border-b border-blue-200">
                       <th className="px-6 py-4 font-bold text-gray-900">Property</th>
                       {compareList.map((product, idx) => (
                         <th key={product._id || idx} className="px-6 py-4 font-bold text-gray-900 min-w-[250px]">
@@ -181,7 +181,7 @@ export default function ComparePage() {
                         return (
                           <td key={product._id || idx} className="px-6 py-4">
                             <div>
-                              <p className="font-bold text-lg text-[#0F1923]">₦{price.toLocaleString()}</p>
+                              <p className="font-bold text-lg text-[#1F2D3D]">₦{price.toLocaleString()}</p>
                               {promoActive && (
                                 <p className="text-sm text-gray-500 line-through">
                                   ₦{Number(product?.salePriceIncTax).toLocaleString()}
@@ -214,7 +214,7 @@ export default function ComparePage() {
                                 <svg
                                   key={k}
                                   className={`w-4 h-4 ${
-                                    k < (product.rating || 0) ? "text-[#C9A96E]" : "text-[#E8E0D4]"
+                                    k < (product.rating || 0) ? "text-[#4C9EFF]" : "text-blue-200"
                                   }`}
                                   fill="currentColor"
                                   viewBox="0 0 20 20"
@@ -266,7 +266,7 @@ export default function ComparePage() {
                     ))}
 
                     {/* Action Row */}
-                    <tr className="bg-[#F5F0E8] border-t border-[#E8E0D4]">
+                    <tr className="bg-[#E6F0FA] border-t border-blue-200">
                       <td className="px-6 py-4 font-semibold text-gray-900">Action</td>
                       {compareList.map((product, idx) => (
                         <td key={product._id || idx} className="px-6 py-4">
@@ -275,7 +275,7 @@ export default function ComparePage() {
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                               className="px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300 text-sm"
-                              className="px-4 py-2 rounded-lg text-white font-semibold bg-[#0F1923] hover:bg-[#1A2332] transition-all duration-300 text-sm"
+                              className="px-4 py-2 rounded-lg text-white font-semibold bg-[#1A5DAB] hover:bg-[#2B5EBF] transition-all duration-300 text-sm"
                             >
                               View Details
                             </motion.button>

@@ -41,7 +41,7 @@ export default function RecentlyViewedPage() {
                   <div className="mt-2 flex gap-2">
                     <button
                       onClick={() => addToCart(p, 1)}
-                      className="flex-1 px-3 py-2 bg-[#0F1923] text-white rounded-lg hover:bg-[#1A2332] transition"
+                      className="flex-1 px-3 py-2 bg-[#1A5DAB] text-white rounded-lg hover:bg-[#2B5EBF] transition"
                     >
                       Add to cart
                     </button>

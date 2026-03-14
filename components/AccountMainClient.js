@@ -102,23 +102,23 @@ export default function AccountMainClient() {
         </div>
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="bg-[#F5F0E8] p-4 rounded-lg text-center">
-            <p className="text-sm text-[#5A6171]">Orders</p>
-            <p className="text-xl font-bold text-[#0F1923]">{orders.length}</p>
+          <div className="bg-[#E6F0FA] p-4 rounded-lg text-center">
+            <p className="text-sm text-gray-600">Orders</p>
+            <p className="text-xl font-bold text-[#1F2D3D]">{orders.length}</p>
           </div>
-          <div className="bg-[#F5F0E8] p-4 rounded-lg text-center">
-            <p className="text-sm text-[#5A6171]">Wishlist</p>
-            <p className="text-xl font-bold text-[#0F1923]">{wishlist.length}</p>
+          <div className="bg-[#E6F0FA] p-4 rounded-lg text-center">
+            <p className="text-sm text-gray-600">Wishlist</p>
+            <p className="text-xl font-bold text-[#1F2D3D]">{wishlist.length}</p>
           </div>
-          <div className="bg-[#F5F0E8] p-4 rounded-lg text-center">
-            <p className="text-sm text-[#5A6171]">Store Credit</p>
+          <div className="bg-[#E6F0FA] p-4 rounded-lg text-center">
+            <p className="text-sm text-gray-600">Store Credit</p>
             <p className="text-xl font-bold">₦{(customerData.storeCredit || 0).toLocaleString()}</p>
           </div>
         </div>
 
         <div className="mt-8">
           <h3 className="text-lg font-semibold mb-2">Address</h3>
-          <div className="bg-[#F5F0E8] rounded-lg p-4">
+          <div className="bg-[#E6F0FA] rounded-lg p-4">
             {editingAddress ? (
               <div className="flex flex-col gap-3">
                 <textarea
@@ -128,14 +128,14 @@ export default function AccountMainClient() {
                   className="w-full border border-gray-300 rounded-lg p-2 text-sm"
                 />
                 <div className="flex gap-2">
-                  <button onClick={saveAddress} className="px-4 py-2 bg-[#0F1923] text-white rounded-lg hover:bg-[#1A2332] transition">Save</button>
+                  <button onClick={saveAddress} className="px-4 py-2 bg-[#1A5DAB] text-white rounded-lg hover:bg-[#2B5EBF] transition">Save</button>
                   <button onClick={() => { setEditingAddress(false); setAddressDraft(address || ""); }} className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400">Cancel</button>
                 </div>
               </div>
             ) : (
               <div className="flex items-center justify-between">
                 <p className="text-gray-700 text-sm">{address || "No address provided"}</p>
-                <button onClick={() => setEditingAddress(true)} className="text-[#C9A96E] text-sm hover:underline">Edit</button>
+                <button onClick={() => setEditingAddress(true)} className="text-[#4C9EFF] text-sm hover:underline">Edit</button>
               </div>
             )}
           </div>
@@ -143,10 +143,10 @@ export default function AccountMainClient() {
       </section>
 
       {/* Recommended Products */}
-      <section className="bg-[#F5F0E8] py-12 rounded-xl">
+      <section className="bg-[#E6F0FA] py-12 rounded-lg">
         <div className="flex items-center justify-between mb-8 px-6">
           <h3 className="font-semibold text-gray-800 text-2xl">Recommended for you</h3>
-          <button className="text-[#C9A96E] hover:underline text-sm">See All →</button>
+          <button className="text-[#4C9EFF] hover:underline text-sm">See All →</button>
         </div>
 
         {(() => {
@@ -162,7 +162,7 @@ export default function AccountMainClient() {
             </div>
             {moreVisible < validProducts.length && (
               <div className="text-center mt-8">
-                <button onClick={() => setMoreVisible((prev) => Math.min(prev + increment, validProducts.length))} className="px-6 py-2 rounded-full bg-[#0F1923] text-white font-semibold hover:bg-[#1A2332] transition">View More</button>
+                <button onClick={() => setMoreVisible((prev) => Math.min(prev + increment, validProducts.length))} className="px-6 py-2 rounded-lg bg-[#1A5DAB] text-white font-semibold hover:bg-[#2B5EBF] transition">View More</button>
               </div>
             )}
           </>;

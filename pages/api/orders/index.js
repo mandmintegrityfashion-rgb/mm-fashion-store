@@ -108,11 +108,11 @@ export default async function handler(req, res) {
 
       // 🧾 Build fancy HTML email
       const htmlBody = `
-        <div style="font-family: 'Segoe UI', sans-serif; background: #FDFBF7; padding: 20px;">
-          <div style="max-width: 600px; margin: auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(15,25,35,0.08);">
-            <div style="background: #0F1923; color: white; padding: 20px; text-align: center;">
+        <div style="font-family: 'Segoe UI', sans-serif; background: #F7FAFC; padding: 20px;">
+          <div style="max-width: 600px; margin: auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(26,93,171,0.08);">
+            <div style="background: #1A5DAB; color: white; padding: 20px; text-align: center;">
               <h2 style="margin: 0; font-family: Georgia, serif; letter-spacing: 1px;">M&amp;M Fashion</h2>
-              <p style="margin: 4px 0 0; color: #C9A96E; font-size: 14px;">Your Order Has Been Received!</p>
+              <p style="margin: 4px 0 0; color: #4C9EFF; font-size: 14px;">Your Order Has Been Received!</p>
             </div>
 
             <div style="padding: 25px;">
@@ -121,13 +121,13 @@ export default async function handler(req, res) {
                 order._id
               }</strong> and our team is preparing it for shipment.</p>
 
-              <h3 style="margin-top: 25px;">📦 Order Summary</h3>
+              <h3 style="margin-top: 25px; color: #1F2D3D;">Order Summary</h3>
               <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
                 <thead>
-                  <tr style="background: #F5F0E8;">
-                    <th style="padding: 8px; border-bottom: 1px solid #E8E0D4; color: #0F1923;">Item</th>
-                    <th style="padding: 8px; border-bottom: 1px solid #E8E0D4; color: #0F1923;">Qty</th>
-                    <th style="padding: 8px; border-bottom: 1px solid #E8E0D4; color: #0F1923;">Price</th>
+                  <tr style="background: #E6F0FA;">
+                    <th style="padding: 8px; border-bottom: 1px solid #C5D9ED; text-align: left; color: #1F2D3D;">Item</th>
+                    <th style="padding: 8px; border-bottom: 1px solid #C5D9ED; text-align: left; color: #1F2D3D;">Qty</th>
+                    <th style="padding: 8px; border-bottom: 1px solid #C5D9ED; text-align: left; color: #1F2D3D;">Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -135,13 +135,13 @@ export default async function handler(req, res) {
                     .map(
                       (p) => `
                         <tr>
-                          <td style="padding: 8px; border-bottom: 1px solid #f1f5f9;">${
+                          <td style="padding: 8px; border-bottom: 1px solid #E6F0FA;">${
                             p.name
                           }</td>
-                          <td style="padding: 8px; border-bottom: 1px solid #f1f5f9;">${
+                          <td style="padding: 8px; border-bottom: 1px solid #E6F0FA;">${
                             p.quantity
                           }</td>
-                          <td style="padding: 8px; border-bottom: 1px solid #f1f5f9;">₦${p.price.toLocaleString()}</td>
+                          <td style="padding: 8px; border-bottom: 1px solid #E6F0FA;">₦${p.price.toLocaleString()}</td>
                         </tr>
                       `
                     )
@@ -149,20 +149,23 @@ export default async function handler(req, res) {
                 </tbody>
               </table>
 
-              <p style="margin-top: 20px;"><strong>Subtotal:</strong> ₦${subtotal.toLocaleString()}</p>
-              <p><strong>Shipping:</strong> ₦${shippingCost.toLocaleString()}</p>
-              <p><strong>Total:</strong> ₦${total.toLocaleString()}</p>
-              <p><strong>Status:</strong> Pending</p>
+              <div style="margin-top: 20px; padding: 16px; background: #E6F0FA; border-radius: 8px; border-left: 4px solid #4C9EFF;">
+                <p style="margin: 4px 0; color: #1F2D3D;"><strong>Subtotal:</strong> ₦${subtotal.toLocaleString()}</p>
+                <p style="margin: 4px 0; color: #1F2D3D;"><strong>Shipping:</strong> ₦${shippingCost.toLocaleString()}</p>
+                <p style="margin: 8px 0 0; font-size: 18px; color: #1A5DAB;"><strong>Total:</strong> ₦${total.toLocaleString()}</p>
+              </div>
+              <p style="margin-top: 12px; color: #1F2D3D;"><strong>Status:</strong> <span style="color: #4C9EFF; font-weight: 600;">Pending</span></p>
 
-              <h3 style="margin-top: 25px;">&#128205; Delivery Details</h3>
-              <p>
+              <h3 style="margin-top: 25px; color: #1F2D3D;">📍 Delivery Details</h3>
+              <div style="padding: 12px; border: 1px solid #C5D9ED; border-radius: 8px; background: #F7FAFC;">
+                <p style="margin: 2px 0; color: #1F2D3D;">
                 ${escapeHtml(customer.address)}<br/>
                 ${escapeHtml(customer.city)}<br/>
                 Phone: ${escapeHtml(customer.phone)}
               </p>
 
-              <p style="margin-top: 30px;">Thank you for shopping with <strong>M&M Fashion</strong>!</p>
-              <p style="font-size: 12px; color: #8E95A2;">If you have any questions, reply to this email or contact us at mandmintegrityfashion@gmail.com.</p>
+              <p style="margin-top: 30px; color: #1F2D3D;">Thank you for shopping with <strong style="color: #4C9EFF;">M&amp;M Fashion</strong>!</p>
+              <p style="font-size: 12px; color: #668299;">If you have any questions, reply to this email or contact us at <a href="mailto:mandmintegrityfashion@gmail.com" style="color: #4C9EFF; text-decoration: none;">mandmintegrityfashion@gmail.com</a>.</p>
             </div>
           </div>
         </div>

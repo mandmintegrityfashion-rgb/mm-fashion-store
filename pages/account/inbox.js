@@ -100,7 +100,7 @@ export default function InboxPage() {
                         key={idx}
                         className={`p-3 rounded ${
                           m.fromCustomer
-                            ? "bg-[#F5F0E8] self-end"
+                            ? "bg-[#E6F0FA] self-end"
                             : "bg-gray-100"
                         }`}
                       >
@@ -124,7 +124,7 @@ export default function InboxPage() {
                       <button
                         disabled={sending}
                         onClick={handleSendReply}
-                        className="px-4 py-2 bg-[#0F1923] text-white rounded-lg hover:bg-[#1A2332] transition"
+                        className="px-4 py-2 bg-[#1A5DAB] text-white rounded-lg hover:bg-[#2B5EBF] transition"
                       >
                         {sending ? "Sending..." : "Send Reply"}
                       </button>

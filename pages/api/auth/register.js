@@ -91,7 +91,7 @@ export default async function handler(req, res) {
       html: `
         <h1>Welcome, ${escapeHtml(customer.name)}</h1>
         <p>Please confirm your account by clicking below:</p>
-        <a href="${verifyUrl}" style="padding:10px 15px; background:#C9A96E; color:white; border-radius:5px; text-decoration:none;">
+        <a href="${verifyUrl}" style="padding:10px 15px; background:#4C9EFF; color:white; border-radius:5px; text-decoration:none;">
           Verify Email
         </a>
         <p>This link will expire in 1 hour.</p>

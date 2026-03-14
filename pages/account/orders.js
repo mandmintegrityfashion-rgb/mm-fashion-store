@@ -56,8 +56,8 @@ export default function OrdersPage() {
                 <div
                   className={`inline-block px-3 py-1 rounded-full text-sm ${
                     o.status === "paid"
-                      ? "bg-[#C9A96E]/10 text-[#C9A96E]"
-                      : "bg-[#F5F0E8] text-[#5A6171]"
+                      ? "bg-[#4C9EFF]/10 text-[#1A5DAB]"
+                      : "bg-[#E6F0FA] text-gray-600"
                   }`}
                 >
                   {o.status}
@@ -67,7 +67,7 @@ export default function OrdersPage() {
                 </div>
                 <button
                   onClick={() => setSelectedOrder(o)}
-                  className="mt-2 px-3 py-1 bg-[#0F1923] text-white rounded-lg hover:bg-[#1A2332] transition text-sm"
+                  className="mt-2 px-3 py-1 bg-[#1A5DAB] text-white rounded-lg hover:bg-[#2B5EBF] transition text-sm"
                 >
                   View
                 </button>

@@ -15,7 +15,7 @@ function Stars({ value = 0, onChange }) {
           onClick={() => onChange(n)}
           type="button"
           className={`text-2xl ${
-            n <= value ? "text-[#C9A96E]" : "text-gray-300"
+            n <= value ? "text-[#4C9EFF]" : "text-gray-300"
           }`}
         >
           ★
@@ -121,7 +121,7 @@ function ReviewCard({ item, onSubmit }) {
             <button
               disabled={busy}
               onClick={() => onSubmit(item, rating, text, setBusy)}
-              className="px-4 py-2 bg-[#0F1923] text-white rounded-lg hover:bg-[#1A2332] transition"
+              className="px-4 py-2 bg-[#1A5DAB] text-white rounded-lg hover:bg-[#2B5EBF] transition"
             >
               {busy ? "Submitting..." : "Submit Review"}
             </button>

@@ -70,7 +70,7 @@ export default function VoucherPage() {
               <button
                 disabled={processing}
                 onClick={redeem}
-                className="px-4 py-2 bg-[#C9A96E] text-white rounded-lg hover:bg-[#B89A5C] transition"
+                className="px-4 py-2 bg-[#4C9EFF] text-white rounded-lg hover:bg-[#2E8EFF] transition"
               >
                 {processing ? "Redeeming..." : "Redeem"}
               </button>
