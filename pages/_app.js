@@ -1,6 +1,7 @@
 import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
+import { CompareProvider } from "@/context/CompareContext";
 import "@/styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -8,7 +9,9 @@ function MyApp({ Component, pageProps }) {
     <AuthProvider>
       <CartProvider>
         <WishlistProvider>
-          <Component {...pageProps} />
+          <CompareProvider>
+            <Component {...pageProps} />
+          </CompareProvider>
         </WishlistProvider>
       </CartProvider>
     </AuthProvider>
