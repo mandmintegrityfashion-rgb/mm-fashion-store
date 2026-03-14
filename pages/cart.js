@@ -175,7 +175,7 @@ export default function CartPage() {
         {/* Order Summary */}
         <div className="flex-1 lg:flex-[1]">
           <div className="bg-white rounded-2xl border border-[#E6F0FA] p-5 sm:p-6 space-y-5 sticky top-24" style={{ boxShadow: "0 2px 12px rgba(31,45,61,0.04)" }}>
-            <h2 className={playfair.className + " text-xl font-bold text-[#1F2D3D]">Order Summary</h2>
+            <h2 className={playfair.className + " text-xl font-bold text-[#1F2D3D]"}>Order Summary</h2>
 
             <div className="space-y-2 text-sm text-[#5A6171]">
               <div className="flex justify-between"><span>Items</span><span>{totalItems}</span></div>
