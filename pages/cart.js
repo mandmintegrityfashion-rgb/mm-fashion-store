@@ -198,8 +198,6 @@ export default function CartPage() {
                       (hasError ? "border-[#B76E79]" : isFocused ? "border-[#4C9EFF] shadow-[0_0_0_3px_rgba(76,158,255,0.08)]" : "border-[#D4E3F7]")}>
                       <Icon className="text-[#8E95A2] mr-2.5 flex-shrink-0" size={14} />
                       <input type={type} placeholder={placeholder} value={customer[name] || ""} onChange={(e) => handleCustomerChange(name, e.target.value)}
-                        onFocus={() => setFocused((p) => ({...p, [name]: true}))} onBlur={() => setFocused((p) => ({...p, [name]: false}))}
-                      <input type={type} placeholder={placeholder} value={customer[name] || ""} onChange={(e) => handleCustomerChange(name, e.target.value)}
                         onFocus={() => setFocused({ ...focused, [name]: true })}
                         onBlur={() => setFocused({ ...focused, [name]: false })}
                         className="w-full bg-transparent outline-none text-sm text-[#1F2D3D] placeholder:text-[#B8BCC6]" />
