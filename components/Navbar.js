@@ -137,10 +137,10 @@ export default function Navbar() {
               <Image src="/images/Logo.png" alt="M&M Logo" fill className="object-contain" priority />
             </div>
             <div className="flex flex-col -ml-1">
-              <span className={`${playfair.className} text-midnight text-lg sm:text-xl font-bold leading-none tracking-tight group-hover:text-gold-dark transition-colors`}>
+              <span className={`${playfair.className} text-midnight text-lg sm:text-xl font-bold leading-none tracking-tight group-hover:text-[#1A5DAB] transition-colors`}>
                 M&M
               </span>
-              <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-gold-dark leading-none">
+              <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-[#1A5DAB] leading-none">
                 Fashion
               </span>
             </div>
@@ -154,7 +154,7 @@ export default function Navbar() {
                   {link.name}
                 </span>
                 <motion.span
-                  className="absolute bottom-0 left-4 right-4 h-[1.5px] bg-gold rounded-full origin-left"
+                  className="absolute bottom-0 left-4 right-4 h-[1.5px] bg-[#4C9EFF] rounded-full origin-left"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
@@ -209,10 +209,10 @@ export default function Navbar() {
                         const data = getProductData(item);
                         return (
                           <motion.div key={data.id} layout className="flex items-center gap-3 p-2 rounded-xl hover:bg-ivory transition-colors">
-                            <Image src={data.image.thumb || "/images/placeholder.jpg"} alt={data.name} width={52} height={52} className="object-cover rounded-lg border border-[#E8E0D4]" />
+                            <Image src={data.image.thumb || "/images/placeholder.jpg"} alt={data.name} width={52} height={52} className="object-cover rounded-lg border border-[#D4E3F7]" />
                             <div className="flex-1 min-w-0">
                               <p className="text-sm font-medium text-midnight truncate">{data.name}</p>
-                              <p className="text-xs text-gold-dark font-semibold">₦{Number(data.price).toLocaleString()}</p>
+                              <p className="text-xs text-[#1A5DAB] font-semibold">₦{Number(data.price).toLocaleString()}</p>
                             </div>
                             <button onClick={() => removeFromWishlist(data.id)} className="text-[#8E95A2] hover:text-rose transition-colors p-1">
                               <FiX size={14} />
@@ -224,7 +224,7 @@ export default function Navbar() {
                   </div>
                 </div>
                 {wishlist.length > 0 && (
-                  <div className="border-t border-[#E8E0D4] p-4">
+                  <div className="border-t border-[#D4E3F7] p-4">
                     <Link href="/wishlist" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-midnight text-white text-sm font-medium hover:bg-charcoal transition-colors">
                       View Wishlist <FiArrowRight size={14} />
                     </Link>
@@ -249,7 +249,7 @@ export default function Navbar() {
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       exit={{ scale: 0 }}
-                      className="absolute -top-0.5 -right-0.5 bg-gold text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                      className="absolute -top-0.5 -right-0.5 bg-[#4C9EFF] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center"
                     >
                       {cartCount}
                     </motion.span>
@@ -267,13 +267,13 @@ export default function Navbar() {
                       cartItems.map((item) => {
                         const data = getProductData(item);
                         return (
-                          <motion.div key={data.id} layout className="flex items-center gap-3 p-2 rounded-xl hover:bg-ivory transition-colors">
-                            <Image src={data.image.thumb || "/images/placeholder.jpg"} alt={data.name} width={52} height={52} className="object-cover rounded-lg border border-[#E8E0D4]" />
+                          <motion.div key={data.id} layout className="flex items-center gap-3 p-2 rounded-xl hover:bg-[#F7FAFC] transition-colors">
+                            <Image src={data.image.thumb || "/images/placeholder.jpg"} alt={data.name} width={52} height={52} className="object-cover rounded-lg border border-[#D4E3F7]" />
                             <div className="flex-1 min-w-0">
                               <p className="text-sm font-medium text-midnight truncate">{data.name}</p>
-                              <p className="text-xs text-gold-dark font-semibold">₦{Number(data.price).toLocaleString()}</p>
+                              <p className="text-xs text-[#1A5DAB] font-semibold">₦{Number(data.price).toLocaleString()}</p>
                               <div className="flex items-center gap-2 mt-1">
-                                <button onClick={() => decreaseQty(data.id)} className="w-6 h-6 flex items-center justify-center rounded-md bg-surface-muted hover:bg-[#E8E0D4] text-midnight text-xs font-bold transition-colors">–</button>
+                                <button onClick={() => decreaseQty(data.id)} className="w-6 h-6 flex items-center justify-center rounded-md bg-[#F1F5F9] hover:bg-[#D4E3F7] text-midnight text-xs font-bold transition-colors">–</button>
                                 <span className="text-xs text-slate font-medium w-4 text-center">{data.quantity}</span>
                                 <button onClick={() => addToCart(item.product, 1)} className="w-6 h-6 flex items-center justify-center rounded-md bg-midnight text-white text-xs font-bold hover:bg-charcoal transition-colors">+</button>
                               </div>
@@ -288,12 +288,12 @@ export default function Navbar() {
                   </div>
                 </div>
                 {cartItems.length > 0 && (
-                  <div className="border-t border-[#E8E0D4] p-4 space-y-3">
+                  <div className="border-t border-[#D4E3F7] p-4 space-y-3">
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-[#5A6171]">Subtotal</span>
                       <span className="text-base font-semibold text-midnight">₦{cartTotal.toLocaleString()}</span>
                     </div>
-                    <Link href="/cart" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-gold text-white text-sm font-semibold hover:bg-gold-dark transition-colors shadow-gold">
+                    <Link href="/cart" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[#4C9EFF] text-white text-sm font-semibold hover:bg-[#1A5DAB] transition-colors shadow-[0_4px_24px_rgba(76,158,255,0.15)]">
                       View Bag <FiArrowRight size={14} />
                     </Link>
                   </div>

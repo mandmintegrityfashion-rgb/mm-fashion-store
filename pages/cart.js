@@ -118,20 +118,20 @@ export default function CartPage() {
   ];
 
   return (
-    <div className="bg-[#FDFBF7] min-h-screen">
+    <div className="bg-[#F7FAFC] min-h-screen">
       <Navbar />
       <div className="flex flex-col lg:flex-row max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 gap-8">
         {/* Cart Items */}
         <div className="flex-1 lg:flex-[2]">
-          <h1 className={playfair.className + " text-2xl sm:text-3xl font-bold text-[#0F1923] mb-6"}>Shopping Bag</h1>
-          <div className="bg-white rounded-2xl border border-[#F0EBE3] p-5 sm:p-6" style={{ boxShadow: "0 2px 12px rgba(15,25,35,0.04)" }}>
+          <h1 className={playfair.className + " text-2xl sm:text-3xl font-bold text-[#1F2D3D] mb-6"}>Shopping Bag</h1>
+          <div className="bg-white rounded-2xl border border-[#E6F0FA] p-5 sm:p-6" style={{ boxShadow: "0 2px 12px rgba(31,45,61,0.04)" }}>
             {cartItems.length === 0 ? (
               <div className="text-center py-16">
-                <FiShoppingBag className="mx-auto text-[#E8E0D4] mb-4" size={48} />
+                <FiShoppingBag className="mx-auto text-[#D4E3F7] mb-4" size={48} />
                 <p className="text-[#8E95A2] text-sm">Your bag is empty</p>
               </div>
             ) : (
-              <ul className="divide-y divide-[#F5F0E8]">
+              <ul className="divide-y divide-[#F1F5F9]">
                 <AnimatePresence>
                   {cartItems.map((item) => {
                     const price = getProductPrice(item.product);
@@ -142,19 +142,19 @@ export default function CartPage() {
                           <img
                             src={Array.isArray(item.product.images) ? item.product.images[0]?.thumb : item.product.image || "/images/placeholder.jpg"}
                             alt={item.product.name}
-                            className="w-20 h-20 rounded-xl object-cover border border-[#F0EBE3] flex-shrink-0"
+                            className="w-20 h-20 rounded-xl object-cover border border-[#E6F0FA] flex-shrink-0"
                           />
                           <div className="min-w-0">
-                            <p className="font-semibold text-[#0F1923] text-sm sm:text-base truncate">{item.product.name}</p>
-                            <p className="text-sm text-[#C9A96E] font-medium">{"\u20A6"}{price.toLocaleString()}</p>
+                            <p className="font-semibold text-[#1F2D3D] text-sm sm:text-base truncate">{item.product.name}</p>
+                            <p className="text-sm text-[#1A5DAB] font-medium">{"\u20A6"}{price.toLocaleString()}</p>
                             <div className="flex items-center gap-2 mt-2">
                               <button onClick={() => decreaseQty(item.product._id)}
-                                className="w-7 h-7 flex items-center justify-center rounded-lg border border-[#E8E0D4] hover:border-[#C9A96E] text-[#5A6171] transition-colors">
+                                className="w-7 h-7 flex items-center justify-center rounded-lg border border-[#D4E3F7] hover:border-[#4C9EFF] text-[#5A6171] transition-colors">
                                 <FiMinus size={12} />
                               </button>
-                              <span className="text-sm font-medium text-[#0F1923] w-6 text-center">{item.quantity}</span>
+                              <span className="text-sm font-medium text-[#1F2D3D] w-6 text-center">{item.quantity}</span>
                               <button onClick={() => addToCart(item.product)}
-                                className="w-7 h-7 flex items-center justify-center rounded-lg bg-[#0F1923] text-white hover:bg-[#1A2332] transition-colors">
+                                className="w-7 h-7 flex items-center justify-center rounded-lg bg-[#1F2D3D] text-white hover:bg-[#1A2332] transition-colors">
                                 <FiPlus size={12} />
                               </button>
                             </div>
@@ -174,14 +174,14 @@ export default function CartPage() {
 
         {/* Order Summary */}
         <div className="flex-1 lg:flex-[1]">
-          <div className="bg-white rounded-2xl border border-[#F0EBE3] p-5 sm:p-6 space-y-5 sticky top-24" style={{ boxShadow: "0 2px 12px rgba(15,25,35,0.04)" }}>
-            <h2 className={playfair.className + " text-xl font-bold text-[#0F1923]"}>Order Summary</h2>
+          <div className="bg-white rounded-2xl border border-[#E6F0FA] p-5 sm:p-6 space-y-5 sticky top-24" style={{ boxShadow: "0 2px 12px rgba(31,45,61,0.04)" }}>
+            <h2 className={playfair.className + " text-xl font-bold text-[#1F2D3D]">Order Summary</h2>
 
             <div className="space-y-2 text-sm text-[#5A6171]">
               <div className="flex justify-between"><span>Items</span><span>{totalItems}</span></div>
               <div className="flex justify-between"><span>Subtotal</span><span>{"\u20A6"}{subtotal.toLocaleString()}</span></div>
               <div className="flex justify-between"><span>Shipping</span><span>{"\u20A6"}{shippingCost.toLocaleString()}</span></div>
-              <div className="flex justify-between font-bold text-[#0F1923] text-base border-t border-[#F0EBE3] pt-3">
+              <div className="flex justify-between font-bold text-[#1F2D3D] text-base border-t border-[#E6F0FA] pt-3">
                 <span>Total</span><span>{"\u20A6"}{total.toLocaleString()}</span>
               </div>
             </div>
@@ -195,11 +195,14 @@ export default function CartPage() {
                 return (
                   <div key={name}>
                     <div className={"flex items-center border rounded-xl px-3 py-2.5 transition-all duration-200 " +
-                      (hasError ? "border-[#B76E79]" : isFocused ? "border-[#C9A96E] shadow-[0_0_0_3px_rgba(201,169,110,0.08)]" : "border-[#E8E0D4]")}>
+                      (hasError ? "border-[#B76E79]" : isFocused ? "border-[#4C9EFF] shadow-[0_0_0_3px_rgba(76,158,255,0.08)]" : "border-[#D4E3F7]")}>
                       <Icon className="text-[#8E95A2] mr-2.5 flex-shrink-0" size={14} />
                       <input type={type} placeholder={placeholder} value={customer[name] || ""} onChange={(e) => handleCustomerChange(name, e.target.value)}
                         onFocus={() => setFocused((p) => ({...p, [name]: true}))} onBlur={() => setFocused((p) => ({...p, [name]: false}))}
-                        className="w-full bg-transparent outline-none text-sm text-[#0F1923] placeholder:text-[#B8BCC6]" />
+                      <input type={type} placeholder={placeholder} value={customer[name] || ""} onChange={(e) => handleCustomerChange(name, e.target.value)}
+                        onFocus={() => setFocused({ ...focused, [name]: true })}
+                        onBlur={() => setFocused({ ...focused, [name]: false })}
+                        className="w-full bg-transparent outline-none text-sm text-[#1F2D3D] placeholder:text-[#B8BCC6]" />
                     </div>
                     <AnimatePresence>
                       {hasError && (
@@ -215,7 +218,7 @@ export default function CartPage() {
             <motion.button onClick={handleCheckout} disabled={isLoading || cartItems.length === 0 || !isFormValid}
               whileHover={{ scale: isLoading ? 1 : 1.01 }} whileTap={{ scale: isLoading ? 1 : 0.99 }}
               className={"w-full py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all " +
-                (isLoading || cartItems.length === 0 || !isFormValid ? "bg-[#E8E0D4] text-[#8E95A2] cursor-not-allowed" : "bg-[#0F1923] text-white hover:bg-[#1A2332]")}>
+                (isLoading || cartItems.length === 0 || !isFormValid ? "bg-[#D4E3F7] text-[#8E95A2] cursor-not-allowed" : "bg-[#1F2D3D] text-white hover:bg-[#1A2332]")}>
               {isLoading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <>Place Order <FiArrowRight size={16} /></>}
             </motion.button>
 

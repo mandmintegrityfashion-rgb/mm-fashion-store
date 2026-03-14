@@ -53,20 +53,20 @@ export default function CategoryList() {
           <h2 className={`${playfair.className} text-3xl md:text-4xl font-bold text-[#0F1923]`}>
             Shop by Category
           </h2>
-          <div className="w-12 h-0.5 bg-[#C9A96E] mx-auto mt-3 rounded-full" />
+          <div className="w-12 h-0.5 bg-[#4C9EFF] mx-auto mt-3 rounded-full" />
         </motion.div>
 
         <div className="relative">
           {/* Scroll buttons */}
           <button
             onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm sm:hidden"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm sm:hidden"
           >
             <FiChevronLeft size={18} />
           </button>
           <button
             onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm sm:hidden"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm sm:hidden"
           >
             <FiChevronRight size={18} />
           </button>

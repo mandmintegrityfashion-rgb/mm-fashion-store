@@ -123,13 +123,13 @@ export default function Carousel({ products, title, color, bg }) {
     <section className={`w-full py-16 ${bg}`}>
       <div className="max-w-7xl mx-auto px-6 relative">
         <h2 className={`text-3xl md:text-4xl font-bold text-center mb-10 ${color}`}>{title}</h2>
-        <div className="w-12 h-0.5 bg-[#C9A96E] mx-auto -mt-7 mb-10 rounded-full" />
+        <div className="w-12 h-0.5 bg-[#4C9EFF] mx-auto -mt-7 mb-10 rounded-full" />
 
         {/* Arrows */}
         {canScrollLeft && (
           <button
             onClick={() => scroll(-1)}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm"
           >
             <FiChevronLeft size={28} />
           </button>
@@ -137,7 +137,7 @@ export default function Carousel({ products, title, color, bg }) {
         {canScrollRight && (
           <button
             onClick={() => scroll(1)}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm"
           >
             <FiChevronRight size={28} />
           </button>
@@ -189,7 +189,8 @@ export default function Carousel({ products, title, color, bg }) {
                 });
               }}
               className={`w-2 h-2 rounded-full ${
-                activeIndex === i ? "bg-[#C9A96E]" : "bg-[#E8E0D4]"
+            className="w-2.5 h-2.5 rounded-full transition-all mx-1 cursor-pointer" style={{ backgroundColor: i === activeIndex ? "#4C9EFF" : "#D4E3F7" }};
+                  onClick={() => setActiveIndex(i)};
               } transition-all`}
             />
           ))}

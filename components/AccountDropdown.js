@@ -37,7 +37,7 @@ export default function AccountDropdown() {
             {customer ? (
               <div className="p-4">
                 <p className="text-[#0F1923] font-semibold text-sm">{customer.name}</p>
-                <p className="text-[10px] text-[#C9A96E] uppercase tracking-wider mt-0.5">Member</p>
+                <p className="text-[10px] text-[#4C9EFF] uppercase tracking-wider mt-0.5">Member</p>
 
                 <div className="h-px bg-[#F0EBE3] my-3" />
 
@@ -71,7 +71,7 @@ export default function AccountDropdown() {
 
                 <Link
                   href="/register"
-                  className="block text-sm font-medium text-[#A88B4A] py-2 px-3 rounded-lg hover:bg-[#FEF7EC] transition-colors text-center"
+              <medium  className="block text-sm font-medium text-[#1A5DAB] py-2 px-3 rounded-lg hover:bg-[#E6F0FA] transition-colors text-center\"
                   onClick={() => setOpen(false)}
                 >
                   Create Account

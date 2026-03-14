@@ -9,7 +9,7 @@ export default function CategoryCard({ title, image, href }) {
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
         className="group relative rounded-2xl overflow-hidden cursor-pointer"
-        style={{ boxShadow: "0 4px 20px rgba(15,25,35,0.08)" }}
+        style={{ boxShadow: "0 4px 20px rgba(76,158,255,0.08)" }}
       >
         <Image
           src={image}
@@ -27,13 +27,13 @@ export default function CategoryCard({ title, image, href }) {
           <h3 className="text-lg md:text-xl font-semibold text-white tracking-wide drop-shadow-lg text-center px-4">
             {title}
           </h3>
-          <span className="text-[11px] uppercase tracking-widest text-[#C9A96E] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span className="text-[11px] uppercase tracking-widest text-[#4C9EFF] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             Explore
           </span>
         </div>
 
-        {/* Gold bottom border on hover */}
-        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C9A96E] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+        {/* Blue bottom border on hover */}
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#4C9EFF] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
       </motion.div>
     </Link>
   );

@@ -2,38 +2,46 @@
 
 /* ===== M&M Fashion Premium Design System ===== */
 :root {
-  /* Primary Palette */
-  --midnight: #0F1923;
+  /* Primary Palette - Blue Theme */
+  --mm-blue-light: #E6F0FA;
+  --mm-blue: #4C9EFF;
+  --mm-blue-dark: #1A5DAB;
+  --accent: #F7FAFC;
+  --mm-gray: #F1F5F9;
+  --text: #1F2D3D;
+
+  /* Legacy colors for backwards compatibility */
+  --midnight: #1F2D3D;
   --charcoal: #1A2332;
   --slate: #2D3748;
 
   /* Accent Colors */
-  --gold: #C9A96E;
-  --gold-light: #E8D5A8;
-  --gold-dark: #A88B4A;
+  --gold: #4C9EFF;
+  --gold-light: #E6F0FA;
+  --gold-dark: #1A5DAB;
   --rose: #B76E79;
-  --ivory: #FDFBF7;
+  --ivory: #F7FAFC;
 
   /* Surfaces */
-  --surface: #FDFBF7;
+  --surface: #F7FAFC;
   --surface-elevated: #FFFFFF;
-  --surface-muted: #F5F0E8;
+  --surface-muted: #F1F5F9;
 
   /* Text */
-  --text-primary: #0F1923;
+  --text-primary: #1F2D3D;
   --text-secondary: #5A6171;
   --text-muted: #8E95A2;
 
   /* Borders */
-  --border-soft: #E8E0D4;
-  --border-subtle: #F0EBE3;
+  --border-soft: #D4E3F7;
+  --border-subtle: #E6F0FA;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(15, 25, 35, 0.04);
-  --shadow-md: 0 4px 16px rgba(15, 25, 35, 0.06);
-  --shadow-lg: 0 8px 32px rgba(15, 25, 35, 0.08);
-  --shadow-xl: 0 16px 48px rgba(15, 25, 35, 0.12);
-  --shadow-gold: 0 4px 24px rgba(201, 169, 110, 0.15);
+  --shadow-sm: 0 1px 3px rgba(31, 45, 61, 0.04);
+  --shadow-md: 0 4px 16px rgba(31, 45, 61, 0.06);
+  --shadow-lg: 0 8px 32px rgba(31, 45, 61, 0.08);
+  --shadow-xl: 0 16px 48px rgba(31, 45, 61, 0.12);
+  --shadow-gold: 0 4px 24px rgba(76, 158, 255, 0.15);
 
   --background: var(--surface);
   --foreground: var(--text-primary);
@@ -97,12 +105,12 @@ body {
 }
 
 @keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.2); }
-  50% { box-shadow: 0 0 0 8px rgba(201, 169, 110, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(76, 158, 255, 0.2); }
+  50% { box-shadow: 0 0 0 8px rgba(76, 158, 255, 0); }
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(76, 158, 255, 0.1), transparent);
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
@@ -117,7 +125,7 @@ body {
 
 /* ===== Premium Button Styles ===== */
 .btn-primary {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  background: linear-gradient(135deg, var(--mm-blue), var(--mm-blue-dark));
   color: white;
   padding: 12px 28px;
   border-radius: 12px;
@@ -127,7 +135,7 @@ body {
 }
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 28px rgba(201, 169, 110, 0.25);
+  box-shadow: 0 6px 28px rgba(76, 158, 255, 0.25);
 }
 
 .btn-outline {
@@ -140,9 +148,9 @@ body {
   background: transparent;
 }
 .btn-outline:hover {
-  border-color: var(--gold);
-  color: var(--gold-dark);
-  background: rgba(201, 169, 110, 0.04);
+  border-color: var(--mm-blue);
+  color: var(--mm-blue-dark);
+  background: rgba(76, 158, 255, 0.04);
 }
 
 /* ===== Glass Effect ===== */

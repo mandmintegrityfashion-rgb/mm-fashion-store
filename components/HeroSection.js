@@ -133,7 +133,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-gold-dark mb-4 border border-gold-light/50 px-4 py-1.5 rounded-full bg-white/60"
+              className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-[#1A5DAB] mb-4 border border-[#E6F0FA] px-4 py-1.5 rounded-full bg-white/60"
             >
               New Collection
             </motion.span>
@@ -163,7 +163,7 @@ export default function HeroSection() {
                 <motion.button
                   whileHover={{ scale: 1.03, y: -1 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-4 text-base rounded-xl bg-gradient-to-r from-gold to-gold-dark text-white font-semibold shadow-gold hover:shadow-gold-lg transition-shadow"
+                  className="px-8 py-4 text-base rounded-xl bg-gradient-to-r from-[#4C9EFF] to-[#1A5DAB] text-white font-semibold shadow-lg hover:shadow-blue-400 transition-shadow"
                 >
                   {slides[current].ctaText || "Shop Now"}
                 </motion.button>
@@ -172,7 +172,7 @@ export default function HeroSection() {
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-4 text-base rounded-xl border-1.5 border-[#E8E0D4] text-midnight font-medium hover:border-gold hover:text-gold-dark hover:bg-gold-light/10 transition-all"
+                  className="px-8 py-4 text-base rounded-xl border-1.5 border-[#D4E3F7] text-midnight font-medium hover:border-[#4C9EFF] hover:text-[#1A5DAB] hover:bg-[#E6F0FA] transition-all"
                 >
                   Learn More
                 </motion.button>
@@ -225,10 +225,10 @@ export default function HeroSection() {
               <button
                 key={idx}
                 onClick={() => { setDirection(idx > current ? 1 : -1); setCurrent(idx); }}
-                className="relative w-8 h-1.5 rounded-full overflow-hidden bg-[#E8E0D4] transition-all"
+                className="relative w-8 h-1.5 rounded-full overflow-hidden bg-[#D4E3F7] transition-all\"
               >
                 <motion.div
-                  className="absolute inset-0 bg-gold rounded-full"
+                  className=\"absolute inset-0 bg-[#4C9EFF] rounded-full\"
                   initial={false}
                   animate={{ scaleX: idx === current ? 1 : 0 }}
                   transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}

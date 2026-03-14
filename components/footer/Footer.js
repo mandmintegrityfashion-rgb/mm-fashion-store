@@ -20,13 +20,13 @@ export default function Footer({ onOpenPage }) {
             <img src="/images/Logo.png" alt="M&M Logo" className="w-12 h-12 rounded-lg" />
             <div className="flex flex-col -ml-1">
               <span className={`${playfair.className} text-lg font-bold text-white`}>M&M</span>
-              <span className="text-xs font-medium text-[#C9A96E] tracking-wider">FASHION</span>
+              <span className=\"text-xs font-medium text-[#4C9EFF] tracking-wider\">FASHION</span>
             </div>
           </div>
           <p className="text-[#8E95A2] text-sm leading-relaxed">Lekki Scheme 2, Lagos, Nigeria</p>
           <p className="text-[#8E95A2] text-sm">
             Email:{" "}
-            <a href="mailto:mandmintegrityfashion@gmail.com" className="text-[#C9A96E] hover:text-white transition-colors">
+            <a href=\"mailto:mandmintegrityfashion@gmail.com\" className=\"text-[#4C9EFF] hover:text-white transition-colors\">
               mandmintegrityfashion<br />@gmail.com
             </a>
           </p>

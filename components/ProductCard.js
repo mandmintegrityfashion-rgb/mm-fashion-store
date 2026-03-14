@@ -42,8 +42,8 @@ function CircularCountdown({ endDate, size = 36 }) {
   return (
     <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
       <svg width={size} height={size} className="rotate-[-90deg]">
-        <circle cx={size / 2} cy={size / 2} r={radius} stroke="#E8E0D4" strokeWidth="2.5" fill="none" />
-        <circle cx={size / 2} cy={size / 2} r={radius} stroke="#C9A96E" strokeWidth="2.5" fill="none"
+        <circle cx={size / 2} cy={size / 2} r={radius} stroke="#D4E3F7" strokeWidth="2.5" fill="none" />
+        <circle cx={size / 2} cy={size / 2} r={radius} stroke="#4C9EFF" strokeWidth="2.5" fill="none"
           strokeDasharray={circumference} strokeDashoffset={circumference - progress}
           strokeLinecap="round" className="transition-all duration-300" />
       </svg>
@@ -85,8 +85,8 @@ export default function ProductCard({ product }) {
       layout
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="relative flex flex-col w-full max-w-[260px] bg-white rounded-2xl overflow-hidden border border-[#F0EBE3] hover:border-[#E8E0D4] transition-all duration-500 group"
-      style={{ boxShadow: isHovered ? "0 8px 32px rgba(15,25,35,0.08)" : "0 1px 3px rgba(15,25,35,0.04)" }}
+      className="relative flex flex-col w-full max-w-[260px] bg-white rounded-2xl overflow-hidden border border-[#E6F0FA] hover:border-[#D4E3F7] transition-all duration-500 group"
+      style={{ boxShadow: isHovered ? "0 8px 32px rgba(31,45,61,0.08)" : "0 1px 3px rgba(31,45,61,0.04)" }}
     >
       {/* Image */}
       <div className="relative w-full aspect-[3/4] overflow-hidden bg-surface-muted">
@@ -106,7 +106,7 @@ export default function ProductCard({ product }) {
             </span>
           )}
           {hasPromotion && !discount && (
-            <span className="bg-gold text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+            <span className="bg-[#4C9EFF] text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
               Sale
             </span>
           )}
@@ -160,7 +160,7 @@ export default function ProductCard({ product }) {
       <div className="p-4 flex flex-col gap-2 flex-1">
         <Link
           href={`/product/${product._id}`}
-          className={`${playfair.className} font-semibold text-sm text-midnight truncate hover:text-gold-dark transition-colors`}
+          className={`${playfair.className} font-semibold text-sm text-midnight truncate hover:text-[#1A5DAB] transition-colors`}
         >
           {product.name}
         </Link>
