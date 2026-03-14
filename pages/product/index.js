@@ -118,15 +118,15 @@ export default function ProductsPage() {
     );
 
   return (
-    <div className="bg-gradient-to-b from-[#fffdf6] via-[#fdfaf2] to-[#f8f4ea] min-h-screen font-sans">
+    <div className="bg-[#FDFBF7] min-h-screen font-sans">
       <Navbar />
 
       <div className="flex flex-col lg:flex-row max-w-7xl mx-auto px-6 py-16 gap-10">
         {/* Sidebar */}
         <div className="flex-1 min-w-[260px] lg:sticky lg:top-24 flex flex-col gap-8">
           {/* Categories */}
-          <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-lg border border-yellow-400/50 p-8 hover:shadow-xl transition duration-500">
-            <h2 className="text-3xl font-serif font-extrabold mb-5 bg-gradient-to-r from-yellow-500 via-yellow-600 to-green-600 text-transparent bg-clip-text drop-shadow-sm">
+          <div className="bg-white rounded-xl shadow-sm border border-[#F0EBE3] p-6">
+            <h2 className="text-xl font-bold mb-5 text-[#0F1923]">
               {categoryName} Category
             </h2>
 
@@ -134,13 +134,13 @@ export default function ProductsPage() {
               {categories.map((cat) => (
                 <label
                   key={cat._id}
-                  className="flex items-center gap-4 cursor-pointer text-gray-700 hover:text-yellow-600 transition-all duration-300"
+                  className="flex items-center gap-4 cursor-pointer text-[#5A6171] hover:text-[#C9A96E] transition-all duration-300"
                 >
                   <input
                     type="checkbox"
                     checked={cat._id === catId}
                     readOnly
-                    className="accent-yellow-600 scale-125 hover:scale-135 transition-transform"
+                    className="accent-[#C9A96E] scale-125 hover:scale-135 transition-transform"
                   />
                   <span className="font-medium">{cat.name}</span>
                 </label>
@@ -150,8 +150,8 @@ export default function ProductsPage() {
 
           {/* Property Filters */}
           {Object.keys(propertyOptions).length > 0 && (
-            <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-lg border border-yellow-400/50 p-8 hover:shadow-xl transition duration-500">
-              <h2 className="text-3xl font-serif font-extrabold mb-5 bg-gradient-to-r from-yellow-500 via-yellow-600 to-green-600 text-transparent bg-clip-text">
+            <div className="bg-white rounded-xl shadow-sm border border-[#F0EBE3] p-6">
+              <h2 className="text-xl font-bold mb-5 text-[#0F1923]">
                 Filter by Properties
               </h2>
 
@@ -164,7 +164,7 @@ export default function ProductsPage() {
                     {values.map((value) => (
                       <label
                         key={value}
-                        className="flex items-center gap-3 cursor-pointer text-gray-700 hover:text-yellow-600 transition-all duration-200"
+                        className="flex items-center gap-3 cursor-pointer text-[#5A6171] hover:text-[#C9A96E] transition-all duration-200"
                       >
                         <input
                           type="checkbox"
@@ -173,7 +173,7 @@ export default function ProductsPage() {
                             false
                           }
                           onChange={() => toggleProperty(propName, value)}
-                          className="accent-yellow-600 scale-110"
+                          className="accent-[#C9A96E] scale-110"
                         />
                         <span>{value}</span>
                       </label>
@@ -185,26 +185,26 @@ export default function ProductsPage() {
           )}
 
           {/* Sort */}
-          <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-lg border border-yellow-400/50 p-8 hover:shadow-xl transition duration-500">
-            <h2 className="text-3xl font-serif font-extrabold mb-5 bg-gradient-to-r from-yellow-500 via-yellow-600 to-green-600 text-transparent bg-clip-text">
+          <div className="bg-white rounded-xl shadow-sm border border-[#F0EBE3] p-6">
+            <h2 className="text-xl font-bold mb-5 text-[#0F1923]">
               Sort By
             </h2>
             <div className="flex flex-col gap-3">
-              <label className="flex items-center gap-4 cursor-pointer text-gray-700 hover:text-yellow-600 transition-all duration-300">
+              <label className="flex items-center gap-4 cursor-pointer text-[#5A6171] hover:text-[#C9A96E] transition-all duration-300">
                 <input
                   type="radio"
                   name="sort"
                   onChange={() => setSort("asc")}
-                  className="accent-yellow-600 scale-125"
+                  className="accent-[#C9A96E] scale-125"
                 />
                 <span className="font-medium">Price (Lowest First)</span>
               </label>
-              <label className="flex items-center gap-4 cursor-pointer text-gray-700 hover:text-yellow-600 transition-all duration-300">
+              <label className="flex items-center gap-4 cursor-pointer text-[#5A6171] hover:text-[#C9A96E] transition-all duration-300">
                 <input
                   type="radio"
                   name="sort"
                   onChange={() => setSort("desc")}
-                  className="accent-yellow-600 scale-125"
+                  className="accent-[#C9A96E] scale-125"
                 />
                 <span className="font-medium">Price (Highest First)</span>
               </label>
@@ -215,17 +215,17 @@ export default function ProductsPage() {
         {/* Product Grid */}
         <div className="flex-[3] flex flex-col gap-12">
           {loading ? (
-            <p className="text-center text-lg font-semibold bg-gradient-to-r from-yellow-500 via-yellow-600 to-green-600 text-transparent bg-clip-text animate-pulse">
+            <p className="text-center text-lg font-semibold text-[#C9A96E] animate-pulse">
               Loading luxurious products...
             </p>
           ) : filteredProducts.length === 0 ? (
-            <p className="text-center text-xl font-medium bg-gradient-to-r from-yellow-500 via-yellow-600 to-green-600 text-transparent bg-clip-text">
+            <p className="text-center text-xl font-medium text-[#5A6171]">
               No products found in this collection.
             </p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
               {filteredProducts.map((product) => (
-                <div className="bg-white rounded-2xl shadow-md border border-yellow-300/50 hover:border-yellow-500 hover:shadow-xl transition-all duration-150">
+                <div className="bg-white rounded-xl shadow-sm border border-[#F0EBE3] hover:border-[#C9A96E] hover:shadow-md transition-all duration-150">
                   <ProductCard product={product} />
                 </div>
               ))}

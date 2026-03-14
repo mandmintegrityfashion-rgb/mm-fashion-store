@@ -2,6 +2,10 @@ import { mongooseConnect } from "@/lib/mongoose";
 import Customer from "@/models/Customer";
 import jwt from "jsonwebtoken";
 
+function sanitizeString(str, maxLength = 200) {
+  return String(str || "").trim().slice(0, maxLength);
+}
+
 export default async function handler(req, res) {
   await mongooseConnect();
 
@@ -18,18 +22,49 @@ export default async function handler(req, res) {
 
     const { name, email, phone, address, city } = req.body;
 
-    // 🧱 Update customer basic info
-    const updateData = { name, email, phone };
+    // Validate and sanitize inputs
+    const sanitizedName = sanitizeString(name, 100);
+    const sanitizedPhone = sanitizeString(phone, 20);
+    const sanitizedAddress = sanitizeString(address, 300);
+    const sanitizedCity = sanitizeString(city, 100);
 
-    // 🏠 Update or add default address
-    if (address && city) {
+    if (!sanitizedName) {
+      return res.status(400).json({ message: "Name is required" });
+    }
+
+    // Validate and normalize email
+    const normalizedEmail = String(email || "").trim().toLowerCase();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!normalizedEmail || !emailRegex.test(normalizedEmail)) {
+      return res.status(400).json({ message: "Invalid email format" });
+    }
+
+    // Validate phone format (digits, spaces, dashes, plus)
+    if (sanitizedPhone && !/^[0-9\s\-+()]{7,20}$/.test(sanitizedPhone)) {
+      return res.status(400).json({ message: "Invalid phone number" });
+    }
+
+    // Check if email is taken by another customer
+    const emailOwner = await Customer.findOne({ email: normalizedEmail });
+    if (emailOwner && emailOwner._id.toString() !== customerId) {
+      return res.status(400).json({ message: "Email already in use" });
+    }
+
+    const updateData = {
+      name: sanitizedName,
+      email: normalizedEmail,
+      phone: sanitizedPhone,
+    };
+
+    // Update or add default address
+    if (sanitizedAddress && sanitizedCity) {
       updateData.addresses = [
         {
           label: "Default",
-          recipientName: name,
-          phone,
-          street: address,
-          city,
+          recipientName: sanitizedName,
+          phone: sanitizedPhone,
+          street: sanitizedAddress,
+          city: sanitizedCity,
           isDefault: true,
         },
       ];

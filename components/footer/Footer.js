@@ -3,52 +3,45 @@
 
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
 
 export default function Footer({ onOpenPage }) {
   return (
-    <footer className="bg-white text-blue-900 border-t border-gray-200 pt-12 pb-6">
+    <footer className="bg-[#0F1923] text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 px-6">
         {/* Brand Info */}
         <div className="flex flex-col space-y-4">
           <div className="flex items-center gap-2">
-            <img src="/images/Logo.png" alt="Oma Logo" className="w-12 h-12" />
-            <div className="flex flex-col -ml-2">
-              <span className="text-lg font-bold">M&M</span>
-              <span className="text-sm font-bold">Fashion</span>
+            <img src="/images/Logo.png" alt="M&M Logo" className="w-12 h-12 rounded-lg" />
+            <div className="flex flex-col -ml-1">
+              <span className={`${playfair.className} text-lg font-bold text-white`}>M&M</span>
+              <span className="text-xs font-medium text-[#C9A96E] tracking-wider">FASHION</span>
             </div>
           </div>
-          <p className="text-gray-600">Lekki Scheme 2, Lagos, Nigeria</p>
-          <p className="text-gray-600">
+          <p className="text-[#8E95A2] text-sm leading-relaxed">Lekki Scheme 2, Lagos, Nigeria</p>
+          <p className="text-[#8E95A2] text-sm">
             Email:{" "}
-            <a
-              href="mailto:mandmintegrityfashion@gmail.com"
-              className="text-blue-500 hover:text-blue-600"
-            >
-              mandmintegrityfashion <br></br>@gmail.com
+            <a href="mailto:mandmintegrityfashion@gmail.com" className="text-[#C9A96E] hover:text-white transition-colors">
+              mandmintegrityfashion<br />@gmail.com
             </a>
           </p>
-          <p className="text-gray-600">
-            Phone: +234-816-664-1324, +234-816-829-9695
-          </p>
+          <p className="text-[#8E95A2] text-sm">Phone: +234-816-664-1324, +234-816-829-9695</p>
         </div>
 
         {/* Customer Care */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Customer Care</h3>
-          <ul className="space-y-2 text-gray-700">
-            {[
-              "Faq",
-              "Refunds",
-              "Terms",
-              "Privacy",
-              "SizeGuide",
-              "Reviews",
-              "Feedback",
-            ].map((page) => (
+          <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-5">Customer Care</h3>
+          <ul className="space-y-2.5">
+            {["Faq", "Refunds", "Terms", "Privacy", "SizeGuide", "Reviews", "Feedback"].map((page) => (
               <li key={page}>
                 <button
                   onClick={() => onOpenPage(page)}
-                  className="hover:text-blue-500 transition-colors text-sm"
+                  className="text-[#8E95A2] hover:text-[#C9A96E] transition-colors text-sm"
                 >
                   {page.replace(/([A-Z])/g, " $1").trim()}
                 </button>
@@ -59,83 +52,54 @@ export default function Footer({ onOpenPage }) {
 
         {/* Delivery & Payment */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Delivery & Payment</h3>
-          <ul className="space-y-2 text-gray-700">
+          <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-5">Delivery & Payment</h3>
+          <ul className="space-y-2.5">
             {["DeliveryInfo", "PayOnDelivery"].map((page) => (
               <li key={page}>
                 <button
                   onClick={() => onOpenPage(page)}
-                  className="hover:text-blue-500 transition-colors text-sm"
+                  className="text-[#8E95A2] hover:text-[#C9A96E] transition-colors text-sm"
                 >
                   {page.replace(/([A-Z])/g, " $1").trim()}
                 </button>
               </li>
             ))}
-            <li className="text-sm">
-              <strong>Pick Up Hours:</strong> Mon - Fri 12:00pm - 5:30pm
+            <li className="text-sm text-[#8E95A2] pt-1">
+              <strong className="text-white/80">Pick Up:</strong> Mon - Fri 12:00pm - 5:30pm
             </li>
           </ul>
         </div>
 
         {/* Hours of Operation */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Hours of Operation</h3>
-          <ul className="space-y-2 text-gray-700 text-sm">
-            <li>
-              <strong>Call-in Hours (GMT+1):</strong> Mon - Fri 9:00am - 5:30pm
-            </li>
-            <li>
-              <strong>Chat Hours (GMT+1):</strong> Mon - Fri 9:30am - 9:00pm
-            </li>
-            <li>
-              <strong>Weekend:</strong> Flexible (responses may be slower)
-            </li>
+          <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-5">Operating Hours</h3>
+          <ul className="space-y-2.5 text-sm text-[#8E95A2]">
+            <li><strong className="text-white/80">Call-in (GMT+1):</strong> Mon - Fri 9am - 5:30pm</li>
+            <li><strong className="text-white/80">Chat (GMT+1):</strong> Mon - Fri 9:30am - 9pm</li>
+            <li><strong className="text-white/80">Weekend:</strong> Flexible responses</li>
           </ul>
         </div>
       </div>
 
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-6 mt-12">
+        <div className="h-px bg-white/10" />
+      </div>
+
       {/* Bottom */}
-      <div className="mt-10 flex flex-col md:flex-row items-center justify-between px-6">
-        <span className="text-sm text-gray-500 mb-4 md:mb-0">
+      <div className="max-w-7xl mx-auto mt-6 flex flex-col md:flex-row items-center justify-between px-6 gap-4">
+        <span className="text-xs text-[#5A6171]">
           &copy; {new Date().getFullYear()} M&M Fashion. All Rights Reserved.
         </span>
-        <div className="flex space-x-4 text-blue-600">
-          <a
-            href="https://web.facebook.com/people/Allure-Suite/61567780641202/"
-            aria-label="Facebook"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-800 transition-colors"
-          >
-            <FaFacebook size={20} />
-          </a>
-          <a
-            href="#"
-            aria-label="Twitter"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-800 transition-colors"
-          >
-            <FaTwitter size={20} />
-          </a>
-          <a
-            href="#"
-            aria-label="Instagram"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-800 transition-colors"
-          >
-            <FaInstagram size={20} />
-          </a>
-          <a
-            href="#"
-            aria-label="LinkedIn"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-800 transition-colors"
-          >
-            <FaLinkedin size={20} />
-          </a>
+        <div className="flex items-center gap-4">
+          <a href="https://web.facebook.com/people/Allure-Suite/61567780641202/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"
+            className="text-[#5A6171] hover:text-[#C9A96E] transition-colors"><FaFacebook size={16} /></a>
+          <a href="#" aria-label="Twitter" target="_blank" rel="noopener noreferrer"
+            className="text-[#5A6171] hover:text-[#C9A96E] transition-colors"><FaTwitter size={16} /></a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"
+            className="text-[#5A6171] hover:text-[#C9A96E] transition-colors"><FaInstagram size={16} /></a>
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"
+            className="text-[#5A6171] hover:text-[#C9A96E] transition-colors"><FaLinkedin size={16} /></a>
         </div>
       </div>
     </footer>

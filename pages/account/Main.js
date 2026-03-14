@@ -86,7 +86,7 @@ export default function AccountMainPage() {
   return (
     <main className="w-full lg:w-full flex flex-col gap-12 px-4 lg:px-0">
       {/* 🔹 Account Overview */}
-      <section className="bg-white shadow rounded-xl p-6">
+      <section className="bg-white shadow-sm border border-[#F0EBE3] rounded-xl p-6">
         <h2 className="text-xl font-bold mb-4">Account Overview</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -109,16 +109,16 @@ export default function AccountMainPage() {
 
         {/* Stats */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="bg-[#E8F2E6] p-4 rounded-lg text-center">
-            <p className="text-sm text-gray-600">Orders</p>
-            <p className="text-xl font-bold">{orders.length}</p>
+          <div className="bg-[#F5F0E8] p-4 rounded-lg text-center">
+            <p className="text-sm text-[#5A6171]">Orders</p>
+            <p className="text-xl font-bold text-[#0F1923]">{orders.length}</p>
           </div>
-          <div className="bg-[#E8F2E6] p-4 rounded-lg text-center">
-            <p className="text-sm text-gray-600">Wishlist</p>
-            <p className="text-xl font-bold">{wishlist.length}</p>
+          <div className="bg-[#F5F0E8] p-4 rounded-lg text-center">
+            <p className="text-sm text-[#5A6171]">Wishlist</p>
+            <p className="text-xl font-bold text-[#0F1923]">{wishlist.length}</p>
           </div>
-          <div className="bg-[#E8F2E6] p-4 rounded-lg text-center">
-            <p className="text-sm text-gray-600">Store Credit</p>
+          <div className="bg-[#F5F0E8] p-4 rounded-lg text-center">
+            <p className="text-sm text-[#5A6171]">Store Credit</p>
             <p className="text-xl font-bold">
               ₦{(customerData.storeCredit || 0).toLocaleString()}
             </p>
@@ -128,7 +128,7 @@ export default function AccountMainPage() {
         {/* Address Card */}
         <div className="mt-8">
           <h3 className="text-lg font-semibold mb-2">Address</h3>
-          <div className="bg-gray-100 rounded-lg p-4">
+          <div className="bg-[#F5F0E8] rounded-lg p-4">
             {editingAddress ? (
               <div className="flex flex-col gap-3">
                 <textarea
@@ -140,7 +140,7 @@ export default function AccountMainPage() {
                 <div className="flex gap-2">
                   <button
                     onClick={saveAddress}
-                    className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+                    className="px-4 py-2 bg-[#0F1923] text-white rounded-lg hover:bg-[#1A2332] transition"
                   >
                     Save
                   </button>
@@ -162,7 +162,7 @@ export default function AccountMainPage() {
                 </p>
                 <button
                   onClick={() => setEditingAddress(true)}
-                  className="text-yellow-600 text-sm hover:underline"
+                  className="text-[#C9A96E] text-sm hover:underline"
                 >
                   Edit
                 </button>
@@ -173,12 +173,12 @@ export default function AccountMainPage() {
       </section>
 
       {/* 🔹 Recommended Products */}
-      <section className="bg-[#E8F2E6] py-12 rounded-xl shadow-inner">
+      <section className="bg-[#F5F0E8] py-12 rounded-xl">
         <div className="flex items-center justify-between mb-8 px-6">
           <h3 className="font-semibold text-gray-800 text-2xl">
             Recommended for you
           </h3>
-          <button className="text-yellow-600 hover:underline text-sm">
+          <button className="text-[#C9A96E] hover:underline text-sm">
             See All →
           </button>
         </div>
@@ -201,7 +201,7 @@ export default function AccountMainPage() {
                       Math.min(prev + increment, recommendedProducts.length)
                     )
                   }
-                  className="px-6 py-2 rounded-full bg-[#546258] text-white font-semibold hover:bg-[#3f4849] transition"
+                  className="px-6 py-2 rounded-full bg-[#0F1923] text-white font-semibold hover:bg-[#1A2332] transition"
                 >
                   View More
                 </button>

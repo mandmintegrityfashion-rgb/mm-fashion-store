@@ -127,8 +127,8 @@ export default function ReviewForm({ productId, onReviewAdded }) {
         disabled={loading}
         className={`w-full py-3 rounded-xl text-white font-semibold shadow-md transition ${
           loading
-            ? "bg-blue-300 cursor-not-allowed"
-            : "bg-blue-600 hover:bg-blue-500"
+            ? "bg-[#0F1923]/50 cursor-not-allowed"
+            : "bg-[#0F1923] hover:bg-[#1A2332]"
         }`}
       >
         {loading ? "Submitting..." : "Submit Review"}

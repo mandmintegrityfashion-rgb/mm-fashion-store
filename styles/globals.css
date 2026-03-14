@@ -1,36 +1,174 @@
 @import "tailwindcss";
 
-/* Brand Colors */
+/* ===== M&M Fashion Premium Design System ===== */
 :root {
-  --luxuryGreen: #546258;
-  --royalCream: #F8ECDC;
-  --lightGoldGradient: #BA936F;
+  /* Primary Palette */
+  --midnight: #0F1923;
+  --charcoal: #1A2332;
+  --slate: #2D3748;
 
-  --background: var(--royalCream);
-  --foreground: var(--luxuryGreen);
-  --primary: var(--lightGoldGradient);
+  /* Accent Colors */
+  --gold: #C9A96E;
+  --gold-light: #E8D5A8;
+  --gold-dark: #A88B4A;
+  --rose: #B76E79;
+  --ivory: #FDFBF7;
 
-  --font-sans: Arial, Helvetica, sans-serif;
+  /* Surfaces */
+  --surface: #FDFBF7;
+  --surface-elevated: #FFFFFF;
+  --surface-muted: #F5F0E8;
+
+  /* Text */
+  --text-primary: #0F1923;
+  --text-secondary: #5A6171;
+  --text-muted: #8E95A2;
+
+  /* Borders */
+  --border-soft: #E8E0D4;
+  --border-subtle: #F0EBE3;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(15, 25, 35, 0.04);
+  --shadow-md: 0 4px 16px rgba(15, 25, 35, 0.06);
+  --shadow-lg: 0 8px 32px rgba(15, 25, 35, 0.08);
+  --shadow-xl: 0 16px 48px rgba(15, 25, 35, 0.12);
+  --shadow-gold: 0 4px 24px rgba(201, 169, 110, 0.15);
+
+  --background: var(--surface);
+  --foreground: var(--text-primary);
+  --font-sans: 'Overpass', system-ui, -apple-system, sans-serif;
   --font-mono: monospace;
 }
 
-/* Global Styles */
+/* ===== Base Styles ===== */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
 
-/* Basic Utility Classes */
+::selection {
+  background: var(--gold-light);
+  color: var(--midnight);
+}
 
-/* Hide scrollbar for all browsers */
+/* ===== Scrollbar ===== */
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;             /* Chrome, Safari, Opera */
+  display: none;
+}
+
+/* Premium scrollbar for main content */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-soft);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ===== Premium Animations ===== */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.2); }
+  50% { box-shadow: 0 0 0 8px rgba(201, 169, 110, 0); }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite;
+}
+
+/* ===== Premium Button Styles ===== */
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: white;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-gold);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(201, 169, 110, 0.25);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--border-soft);
+  color: var(--text-primary);
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold-dark);
+  background: rgba(201, 169, 110, 0.04);
+}
+
+/* ===== Glass Effect ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ===== Premium Card ===== */
+.card-premium {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-premium:hover {
+  border-color: var(--border-soft);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ===== Session Warning Banner ===== */
+.session-warning {
+  background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+  border-bottom: 1px solid #F59E0B;
 }
 

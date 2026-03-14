@@ -3,6 +3,7 @@ import Customer from "@/models/Customer";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
 import nodemailer from "nodemailer";
+import { registerLimiter, applyRateLimit } from "@/lib/rateLimit";
 
 function escapeHtml(str) {
   return String(str)
@@ -18,6 +19,12 @@ export default async function handler(req, res) {
   }
 
   try {
+    await applyRateLimit(req, res, registerLimiter);
+  } catch {
+    return res.status(429).json({ success: false, message: "Too many registration attempts. Please try again later." });
+  }
+
+  try {
     await mongooseConnect();
 
     const { name, email, phone, password } = req.body;
@@ -26,9 +33,12 @@ export default async function handler(req, res) {
       return res.status(400).json({ success: false, message: "All fields required" });
     }
 
+    // Case-insensitive email normalization
+    const normalizedEmail = String(email).trim().toLowerCase();
+
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(normalizedEmail)) {
       return res.status(400).json({ success: false, message: "Invalid email format" });
     }
 
@@ -37,7 +47,10 @@ export default async function handler(req, res) {
       return res.status(400).json({ success: false, message: "Password must be at least 8 characters" });
     }
 
-    const existing = await Customer.findOne({ email });
+    // Sanitize name
+    const sanitizedName = String(name).trim().slice(0, 100);
+
+    const existing = await Customer.findOne({ email: normalizedEmail });
     if (existing) {
       return res.status(400).json({ success: false, message: "Email already registered" });
     }
@@ -48,8 +61,8 @@ export default async function handler(req, res) {
     const tokenExpiry = Date.now() + 60 * 60 * 1000; // 1 hour
 
     const customer = await Customer.create({
-      name,
-      email,
+      name: sanitizedName,
+      email: normalizedEmail,
       phone,
       password: hashedPassword,
       verificationToken,
@@ -78,7 +91,7 @@ export default async function handler(req, res) {
       html: `
         <h1>Welcome, ${escapeHtml(customer.name)}</h1>
         <p>Please confirm your account by clicking below:</p>
-        <a href="${verifyUrl}" style="padding:10px 15px; background:#fbbf24; color:white; border-radius:5px; text-decoration:none;">
+        <a href="${verifyUrl}" style="padding:10px 15px; background:#C9A96E; color:white; border-radius:5px; text-decoration:none;">
           Verify Email
         </a>
         <p>This link will expire in 1 hour.</p>

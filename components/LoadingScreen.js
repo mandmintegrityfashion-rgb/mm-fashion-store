@@ -105,7 +105,7 @@ export default function LoadingScreen() {
               transition={{ delay: 0.4 }}
             >
               <motion.div
-                className="h-full bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full"
+                className="h-full bg-gradient-to-r from-[#C9A96E] to-[#B89A5C] rounded-full"
                 animate={{
                   width: ["10%", "60%", "90%"],
                 }}

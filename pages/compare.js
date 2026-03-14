@@ -48,7 +48,7 @@ export default function ComparePage() {
         />
       </Head>
 
-      <div className={`${playfair.className} bg-gradient-to-b from-white via-gray-50 to-white min-h-screen`}>
+      <div className={`${playfair.className} bg-[#FDFBF7] min-h-screen`}>
         <Navbar />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
@@ -68,16 +68,12 @@ export default function ComparePage() {
           >
             <h1
               className="text-5xl font-bold mb-4 font-serif"
-              style={{
-                background: "linear-gradient(135deg, #1a1a1a, #546258)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
+              className="text-4xl sm:text-5xl font-bold mb-4 text-[#0F1923]"
             >
               Product Comparison
             </h1>
-            <p className="text-gray-600 text-lg">
+            <div className="w-12 h-0.5 bg-[#C9A96E] mb-4"></div>
+            <p className="text-[#5A6171] text-lg">
               {compareList.length === 0
                 ? "Add products to compare them side by side."
                 : `Comparing ${compareList.length} product${compareList.length !== 1 ? "s" : ""}`}
@@ -89,7 +85,7 @@ export default function ComparePage() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center py-20 bg-white rounded-3xl shadow-lg border border-gray-200"
+              className="text-center py-20 bg-white rounded-xl shadow-sm border border-[#F0EBE3]"
             >
               <div className="text-6xl mb-4">📊</div>
               <h2 className="text-2xl font-bold text-gray-900 mb-3">No Products to Compare</h2>
@@ -101,7 +97,7 @@ export default function ComparePage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-3 rounded-lg font-semibold text-white transition-all duration-300"
-                  style={{ background: "linear-gradient(135deg, #546258, #6b7a66)" }}
+                  className="px-8 py-3 rounded-lg font-semibold text-white bg-[#0F1923] hover:bg-[#1A2332] transition-all duration-300"
                 >
                   Browse Products
                 </motion.button>
@@ -119,7 +115,7 @@ export default function ComparePage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={clearCompare}
-                  className="px-4 py-2 rounded-lg text-red-600 border border-red-300 hover:bg-red-50 transition-all duration-300 font-semibold"
+                  className="px-4 py-2 rounded-lg text-[#B76E79] border border-[#B76E79]/30 hover:bg-[#B76E79]/5 transition-all duration-300 font-semibold"
                 >
                   Clear All
                 </motion.button>
@@ -129,11 +125,11 @@ export default function ComparePage() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="overflow-x-auto rounded-2xl shadow-lg border border-gray-200 bg-white"
+                className="overflow-x-auto rounded-xl shadow-sm border border-[#F0EBE3] bg-white"
               >
                 <table className="w-full text-left text-sm">
                   <thead>
-                    <tr className="bg-gradient-to-r from-[#546258]/10 to-[#6b7a66]/10 border-b-2 border-gray-300">
+                    <tr className="bg-[#F5F0E8] border-b border-[#E8E0D4]">
                       <th className="px-6 py-4 font-bold text-gray-900">Property</th>
                       {compareList.map((product, idx) => (
                         <th key={product._id || idx} className="px-6 py-4 font-bold text-gray-900 min-w-[250px]">
@@ -185,7 +181,7 @@ export default function ComparePage() {
                         return (
                           <td key={product._id || idx} className="px-6 py-4">
                             <div>
-                              <p className="font-bold text-lg text-[#546258]">₦{price.toLocaleString()}</p>
+                              <p className="font-bold text-lg text-[#0F1923]">₦{price.toLocaleString()}</p>
                               {promoActive && (
                                 <p className="text-sm text-gray-500 line-through">
                                   ₦{Number(product?.salePriceIncTax).toLocaleString()}
@@ -218,7 +214,7 @@ export default function ComparePage() {
                                 <svg
                                   key={k}
                                   className={`w-4 h-4 ${
-                                    k < (product.rating || 0) ? "text-yellow-400" : "text-gray-300"
+                                    k < (product.rating || 0) ? "text-[#C9A96E]" : "text-[#E8E0D4]"
                                   }`}
                                   fill="currentColor"
                                   viewBox="0 0 20 20"
@@ -270,7 +266,7 @@ export default function ComparePage() {
                     ))}
 
                     {/* Action Row */}
-                    <tr className="bg-gradient-to-r from-[#546258]/5 to-[#6b7a66]/5 border-t-2 border-gray-300">
+                    <tr className="bg-[#F5F0E8] border-t border-[#E8E0D4]">
                       <td className="px-6 py-4 font-semibold text-gray-900">Action</td>
                       {compareList.map((product, idx) => (
                         <td key={product._id || idx} className="px-6 py-4">
@@ -279,7 +275,7 @@ export default function ComparePage() {
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                               className="px-4 py-2 rounded-lg text-white font-semibold transition-all duration-300 text-sm"
-                              style={{ background: "linear-gradient(135deg, #546258, #6b7a66)" }}
+                              className="px-4 py-2 rounded-lg text-white font-semibold bg-[#0F1923] hover:bg-[#1A2332] transition-all duration-300 text-sm"
                             >
                               View Details
                             </motion.button>

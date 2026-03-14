@@ -79,7 +79,7 @@ export default function AddressesPage() {
                     postalCode: "",
                   })
                 }
-                className="px-4 py-2 bg-blue-600 text-white rounded"
+                className="px-4 py-2 bg-[#0F1923] text-white rounded-lg hover:bg-[#1A2332] transition"
               >
                 Add Address
               </button>
@@ -103,13 +103,13 @@ export default function AddressesPage() {
                   <div className="flex gap-2">
                     <button
                       onClick={() => setEditing(a)}
-                      className="px-3 py-1 border rounded"
+                      className="px-3 py-1 border border-[#E8E0D4] rounded-lg hover:border-[#C9A96E] transition"
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => removeAddress(a._id)}
-                      className="px-3 py-1 border rounded text-red-600"
+                      className="px-3 py-1 border border-[#E8E0D4] rounded-lg text-[#B76E79] hover:border-[#B76E79] transition"
                     >
                       Remove
                     </button>
@@ -196,7 +196,7 @@ function AddressForm({ initial, onSave, onCancel, busy }) {
         <button
           type="submit"
           disabled={busy}
-          className="px-3 py-2 bg-green-600 text-white rounded"
+          className="px-3 py-2 bg-[#0F1923] text-white rounded-lg hover:bg-[#1A2332] transition"
         >
           {busy ? "Saving..." : "Save"}
         </button>

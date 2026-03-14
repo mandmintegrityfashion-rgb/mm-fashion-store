@@ -120,15 +120,16 @@ export default function Carousel({ products, title, color, bg }) {
   const dotCount = Math.ceil(products.length / itemsPerView);
 
   return (
-    <section className={`w-full py-20 ${bg}`}>
+    <section className={`w-full py-16 ${bg}`}>
       <div className="max-w-7xl mx-auto px-6 relative">
-        <h2 className={`text-4xl font-bold text-center mb-12 ${color}`}>{title}</h2>
+        <h2 className={`text-3xl md:text-4xl font-bold text-center mb-10 ${color}`}>{title}</h2>
+        <div className="w-12 h-0.5 bg-[#C9A96E] mx-auto -mt-7 mb-10 rounded-full" />
 
         {/* Arrows */}
         {canScrollLeft && (
           <button
             onClick={() => scroll(-1)}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white shadow-xl rounded-full p-3 hover:bg-gray-100 transition-all z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm"
           >
             <FiChevronLeft size={28} />
           </button>
@@ -136,7 +137,7 @@ export default function Carousel({ products, title, color, bg }) {
         {canScrollRight && (
           <button
             onClick={() => scroll(1)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white shadow-xl rounded-full p-3 hover:bg-gray-100 transition-all z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm"
           >
             <FiChevronRight size={28} />
           </button>
@@ -187,8 +188,8 @@ export default function Carousel({ products, title, color, bg }) {
                   behavior: "smooth",
                 });
               }}
-              className={`w-3 h-3 rounded-full ${
-                activeIndex === i ? "bg-gray-800" : "bg-gray-400"
+              className={`w-2 h-2 rounded-full ${
+                activeIndex === i ? "bg-[#C9A96E]" : "bg-[#E8E0D4]"
               } transition-all`}
             />
           ))}

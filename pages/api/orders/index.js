@@ -6,6 +6,7 @@ import { mongooseConnect } from "@/lib/mongoose";
 import nodemailer from "nodemailer";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
+import { paymentLimiter, applyRateLimit } from "@/lib/rateLimit";
 
 function escapeHtml(str) {
   return String(str || "")
@@ -19,6 +20,12 @@ export default async function handler(req, res) {
   await mongooseConnect();
 
   if (req.method === "POST") {
+    try {
+      await applyRateLimit(req, res, paymentLimiter);
+    } catch {
+      return res.status(429).json({ success: false, message: "Too many order attempts. Please try again later." });
+    }
+
     try {
       const { customer, cartProducts, items, subtotal, shippingCost, total } =
         req.body;
@@ -101,11 +108,11 @@ export default async function handler(req, res) {
 
       // 🧾 Build fancy HTML email
       const htmlBody = `
-        <div style="font-family: 'Segoe UI', sans-serif; background: #f9fafb; padding: 20px;">
-          <div style="max-width: 600px; margin: auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-            <div style="background: #1e3a8a; color: white; padding: 20px; text-align: center;">
-              <h2 style="margin: 0;">M&amp;M Fashion</h2>
-              <p style="margin: 0;">Your Order Has Been Received!</p>
+        <div style="font-family: 'Segoe UI', sans-serif; background: #FDFBF7; padding: 20px;">
+          <div style="max-width: 600px; margin: auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(15,25,35,0.08);">
+            <div style="background: #0F1923; color: white; padding: 20px; text-align: center;">
+              <h2 style="margin: 0; font-family: Georgia, serif; letter-spacing: 1px;">M&amp;M Fashion</h2>
+              <p style="margin: 4px 0 0; color: #C9A96E; font-size: 14px;">Your Order Has Been Received!</p>
             </div>
 
             <div style="padding: 25px;">
@@ -117,10 +124,10 @@ export default async function handler(req, res) {
               <h3 style="margin-top: 25px;">📦 Order Summary</h3>
               <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
                 <thead>
-                  <tr style="background: #f1f5f9;">
-                    <th style="padding: 8px; border-bottom: 1px solid #e5e7eb;">Item</th>
-                    <th style="padding: 8px; border-bottom: 1px solid #e5e7eb;">Qty</th>
-                    <th style="padding: 8px; border-bottom: 1px solid #e5e7eb;">Price</th>
+                  <tr style="background: #F5F0E8;">
+                    <th style="padding: 8px; border-bottom: 1px solid #E8E0D4; color: #0F1923;">Item</th>
+                    <th style="padding: 8px; border-bottom: 1px solid #E8E0D4; color: #0F1923;">Qty</th>
+                    <th style="padding: 8px; border-bottom: 1px solid #E8E0D4; color: #0F1923;">Price</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -155,7 +162,7 @@ export default async function handler(req, res) {
               </p>
 
               <p style="margin-top: 30px;">Thank you for shopping with <strong>M&M Fashion</strong>!</p>
-              <p style="font-size: 12px; color: #6b7280;">If you have any questions, reply to this email or contact us at mandmintegrityfashion@gmail.com.</p>
+              <p style="font-size: 12px; color: #8E95A2;">If you have any questions, reply to this email or contact us at mandmintegrityfashion@gmail.com.</p>
             </div>
           </div>
         </div>

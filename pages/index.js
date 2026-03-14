@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+﻿import { useState, useMemo } from "react";
 import { createElement } from "react";
 import useSWR from "swr";
 import Head from "next/head";
@@ -39,7 +39,6 @@ export default function Home({ products, categories }) {
     el.scrollBy({ left: distance, behavior: "smooth" });
   };
 
-  // 🔥 Flash Sale
   const flashProducts = useMemo(
     () =>
       products?.filter((product) => {
@@ -54,7 +53,6 @@ export default function Home({ products, categories }) {
     [products, now]
   );
 
-  // Group products by category id
   const productsByCategory = useMemo(() => {
     const grouped = {};
     products?.forEach((p) => {
@@ -73,106 +71,101 @@ export default function Home({ products, categories }) {
     <>
       <Head>
         <title>M&M Fashion Store</title>
-        <meta name="description" content="Shop the best deals on OmaHub Store" />
+        <meta name="description" content="Shop the best deals on M&M Fashion Store" />
       </Head>
 
-      <div className={`${playfair.className} bg-gray-50 min-h-screen`}>
+      <div className={`${playfair.className} bg-[#FDFBF7] min-h-screen`}>
         <Navbar />
         <HeroSection />
         <CategoryList />
 
-        {/* 🔥 Flash Sales Section */}
+        {/* Flash Sales */}
         {flashProducts?.length > 0 && (
-          <Section
-            title="🔥 Flash Sales"
-            bg="bg-gradient-to-r from-yellow-50 via-orange-50 to-yellow-50"
-          >
+          <Section title="Flash Sales" bg="bg-gradient-to-r from-[#FEF7EC] via-[#FDFBF7] to-[#FEF7EC]">
             <div className="relative">
               <div
                 id="flash-scroll"
-                className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth hide-scrollbar snap-x snap-mandatory py-4"
+                className="flex gap-5 overflow-x-auto scroll-smooth hide-scrollbar snap-x snap-mandatory py-2"
               >
-                {flashProducts.map((p) => (
-                  <div
+                {flashProducts.map((p, i) => (
+                  <motion.div
                     key={p._id}
-                    className="
-                      min-w-[80%] sm:min-w-[45%] md:min-w-[30%] lg:min-w-[28%]
-                      snap-start transition-all duration-300 transform hover:scale-105
-                    "
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08, duration: 0.4 }}
+                    className="min-w-[75%] sm:min-w-[45%] md:min-w-[30%] lg:min-w-[24%] snap-start"
                   >
                     <ProductCard product={p} />
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
-              {/* Left/Right Arrows */}
               <button
                 onClick={() => scrollBy("flash-scroll", -300)}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white shadow-xl rounded-full p-3 hover:bg-gray-100 transition-all z-10 hidden sm:flex"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm hidden sm:flex"
               >
-                <FiChevronLeft size={28} />
+                <FiChevronLeft size={18} />
               </button>
               <button
                 onClick={() => scrollBy("flash-scroll", 300)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white shadow-xl rounded-full p-3 hover:bg-gray-100 transition-all z-10 hidden sm:flex"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm hidden sm:flex"
               >
-                <FiChevronRight size={28} />
+                <FiChevronRight size={18} />
               </button>
             </div>
           </Section>
         )}
 
-        {/* Dynamic Category Sections */}
+        {/* Category Sections */}
         {categories?.length > 0 ? (
           categories.map((cat) => (
-            <Section key={cat._id} title={cat.name} bg="bg-gray-50">
-              <div className="relative backdrop-blur-lg rounded-2xl p-4 sm:p-6 shadow-md border border-yellow-300 hover:shadow-2xl transition duration-500">
+            <Section key={cat._id} title={cat.name} bg="bg-[#FDFBF7]">
+              <div className="relative bg-white rounded-2xl p-4 sm:p-6 border border-[#F0EBE3]" style={{ boxShadow: "0 2px 12px rgba(15,25,35,0.04)" }}>
                 <div
                   id={`cat-scroll-${cat._id}`}
-                  className="flex gap-3 sm:gap-6 overflow-x-auto scroll-smooth hide-scrollbar snap-x snap-mandatory"
+                  className="flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth hide-scrollbar snap-x snap-mandatory"
                 >
-                  {productsByCategory[cat._id.toString()]?.map((p) => (
-                    <div
+                  {productsByCategory[cat._id.toString()]?.map((p, i) => (
+                    <motion.div
                       key={p._id}
-                      className="
-                        min-w-[80%] sm:min-w-[45%] md:min-w-[32%] lg:min-w-[25%]
-                        snap-start transition-all duration-300 transform hover:scale-105
-                      "
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.06, duration: 0.35 }}
+                      className="min-w-[75%] sm:min-w-[45%] md:min-w-[32%] lg:min-w-[24%] snap-start"
                     >
                       <ProductCard product={p} />
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
 
-                {/* Left/Right Arrows */}
                 <button
                   onClick={() => scrollBy(`cat-scroll-${cat._id}`, -300)}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white shadow-xl rounded-full p-3 hover:bg-gray-100 transition-all z-10 hidden sm:flex"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm hidden sm:flex"
                 >
-                  <FiChevronLeft size={28} />
+                  <FiChevronLeft size={16} />
                 </button>
                 <button
                   onClick={() => scrollBy(`cat-scroll-${cat._id}`, 300)}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white shadow-xl rounded-full p-3 hover:bg-gray-100 transition-all z-10 hidden sm:flex"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm hidden sm:flex"
                 >
-                  <FiChevronRight size={28} />
+                  <FiChevronRight size={16} />
                 </button>
 
-                {/* See All link */}
                 {productsByCategory[cat._id.toString()]?.length > 4 && (
-                  <div className="text-center sm:text-right mt-3 sm:mt-4">
+                  <div className="text-center sm:text-right mt-4">
                     <Link
                       href={`/product?category=${cat.slug || cat._id}`}
-                      className="text-yellow-600 font-semibold hover:text-yellow-500 transition-colors text-sm sm:text-base"
+                      className="text-[#A88B4A] font-semibold hover:text-[#C9A96E] transition-colors text-sm inline-flex items-center gap-1"
                     >
-                      See All &rarr;
+                      See All <FiChevronRight size={14} />
                     </Link>
                   </div>
                 )}
 
-                {/* Empty category */}
                 {productsByCategory[cat._id.toString()]?.length === 0 && (
-                  <p className="col-span-full text-center text-gray-500 mt-4 text-sm sm:text-base">
+                  <p className="col-span-full text-center text-[#8E95A2] mt-4 text-sm">
                     No products available.
                   </p>
                 )}
@@ -180,7 +173,7 @@ export default function Home({ products, categories }) {
             </Section>
           ))
         ) : (
-          <p className="text-center text-gray-500 text-sm sm:text-base">
+          <p className="text-center text-[#8E95A2] text-sm py-12">
             No categories available.
           </p>
         )}
@@ -191,35 +184,27 @@ export default function Home({ products, categories }) {
             moreProducts?.map((p) => ({ ...p, cardComponent: ProductCard })) || []
           }
           title="Products You May Like"
-          color="text-[#546258]"
-          bg="bg-[#E8F2E6]"
+          color="text-[#0F1923]"
+          bg="bg-[#F5F0E8]"
         />
 
-        {/* Footer + Modal */}
-        <Footer
-          onOpenPage={handleOpenPage}
-          socialLinks={{
-            facebook: "https://web.facebook.com/people/Allure-Suite/61567780641202/",
-            twitter: "#",
-            instagram: "#",
-            linkedin: "#",
-            target: "_blank",
-            rel: "noopener noreferrer",
-          }}
-        />
+        {/* Footer */}
+        <Footer onOpenPage={handleOpenPage} />
 
         {openPage && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="bg-white rounded-2xl shadow-xl w-full max-w-3xl p-6 overflow-y-auto max-h-[90vh] relative"
+              transition={{ duration: 0.2 }}
+              className="bg-white rounded-2xl w-full max-w-3xl p-6 overflow-y-auto max-h-[90vh] relative border border-[#F0EBE3]"
+              style={{ boxShadow: "0 16px 48px rgba(15,25,35,0.12)" }}
             >
               <button
                 onClick={handleClosePage}
-                className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 font-bold text-lg"
+                className="absolute top-4 right-4 text-[#8E95A2] hover:text-[#0F1923] transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F5F0E8]"
               >
-                ×
+                <span className="text-lg font-bold">&times;</span>
               </button>
               {createElement(FooterPages[openPage])}
             </motion.div>
@@ -230,13 +215,10 @@ export default function Home({ products, categories }) {
   );
 }
 
-// ✅ Server-side fetching
 export async function getServerSideProps() {
   await mongooseConnect();
 
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
   const products = await Product.find().populate("category").lean();
 
   let categories = [];
@@ -244,8 +226,8 @@ export async function getServerSideProps() {
     const categoriesRes = await fetch(`${baseUrl}/api/categories`);
     if (categoriesRes.ok) {
       categories = await categoriesRes.json();
-        } else {
-      console.error(" Failed to fetch categories:", categoriesRes.status);
+    } else {
+      console.error("Failed to fetch categories:", categoriesRes.status);
     }
   } catch (err) {
     console.error("Error fetching categories:", err);

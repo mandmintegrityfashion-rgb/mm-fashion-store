@@ -1,17 +1,16 @@
 "use client";
 
-import { Overpass } from "next/font/google";
-import { FaShoppingCart, FaHeart } from "react-icons/fa";
+import { Overpass, Playfair_Display } from "next/font/google";
+import { FiShoppingBag, FiHeart, FiEye } from "react-icons/fi";
 import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const overpass = Overpass({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "900"],
-});
+const overpass = Overpass({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
+const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 function CircularCountdown({ endDate, size = 36 }) {
   const [timeLeft, setTimeLeft] = useState(null);
@@ -21,7 +20,6 @@ function CircularCountdown({ endDate, size = 36 }) {
   const calculateTimeLeft = () => {
     const diff = new Date(endDate) - new Date();
     if (diff <= 0) return null;
-
     return {
       total: diff,
       seconds: Math.floor((diff / 1000) % 60),
@@ -37,38 +35,19 @@ function CircularCountdown({ endDate, size = 36 }) {
     return () => clearInterval(timer);
   }, [endDate]);
 
-  if (!timeLeft)
-    return (
-      <p className="text-red-500 font-semibold text-xs text-center">Expired</p>
-    );
+  if (!timeLeft) return <span className="text-rose text-[10px] font-semibold">Expired</span>;
 
   const progress = (timeLeft.seconds / 60) * circumference;
 
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
       <svg width={size} height={size} className="rotate-[-90deg]">
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
-          stroke="#eee"
-          strokeWidth="3"
-          fill="none"
-        />
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
-          stroke="#D35400"
-          strokeWidth="3"
-          fill="none"
-          strokeDasharray={circumference}
-          strokeDashoffset={circumference - progress}
-          strokeLinecap="round"
-          className="transition-all duration-300"
-        />
+        <circle cx={size / 2} cy={size / 2} r={radius} stroke="#E8E0D4" strokeWidth="2.5" fill="none" />
+        <circle cx={size / 2} cy={size / 2} r={radius} stroke="#C9A96E" strokeWidth="2.5" fill="none"
+          strokeDasharray={circumference} strokeDashoffset={circumference - progress}
+          strokeLinecap="round" className="transition-all duration-300" />
       </svg>
-      <span className="text-xs font-medium">
+      <span className="text-[10px] font-semibold text-midnight">
         {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m
       </span>
     </div>
@@ -78,114 +57,144 @@ function CircularCountdown({ endDate, size = 36 }) {
 export default function ProductCard({ product }) {
   const { addToCart } = useCart();
   const { addToWishlist } = useWishlist();
+  const [isHovered, setIsHovered] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
 
   const formatPrice = (price) =>
-    new Intl.NumberFormat("en-NG", {
-      style: "currency",
-      currency: "NGN",
-      minimumFractionDigits: 0,
-    }).format(price);
+    new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN", minimumFractionDigits: 0 }).format(price);
 
   const fallbackImage = "/images/placeholder.jpg";
-  const image =
-    product?.images?.[0]?.full ||
-    product?.images?.[0] ||
-    product?.image ||
-    fallbackImage;
-
-  const isNew =
-    new Date() - new Date(product?.createdAt) <
-    7 * 24 * 60 * 60 * 1000;
-
+  const image = product?.images?.[0]?.full || product?.images?.[0] || product?.image || fallbackImage;
+  const isNew = new Date() - new Date(product?.createdAt) < 7 * 24 * 60 * 60 * 1000;
   const hasPromotion = product?.isPromotion || product?.promoEnd;
 
+  const discount = hasPromotion && product?.salePriceIncTax && product?.promoPrice
+    ? Math.round((1 - product.promoPrice / product.salePriceIncTax) * 100)
+    : 0;
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product);
+    setAddedToCart(true);
+    setTimeout(() => setAddedToCart(false), 1500);
+  };
+
   return (
-    <div className="relative flex flex-col w-full max-w-[230px] sm:max-w-[250px] md:max-w-[270px] bg-white rounded-2xl shadow border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
-      {/* Image Section */}
-      <div className="relative w-full h-40 sm:h-44 overflow-hidden rounded-t-2xl">
-    <Image
-  src={image}
-  alt={product?.name || "Product"}
-  fill
-  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-  className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-/>
+    <motion.div
+      layout
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className="relative flex flex-col w-full max-w-[260px] bg-white rounded-2xl overflow-hidden border border-[#F0EBE3] hover:border-[#E8E0D4] transition-all duration-500 group"
+      style={{ boxShadow: isHovered ? "0 8px 32px rgba(15,25,35,0.08)" : "0 1px 3px rgba(15,25,35,0.04)" }}
+    >
+      {/* Image */}
+      <div className="relative w-full aspect-[3/4] overflow-hidden bg-surface-muted">
+        <Image
+          src={image}
+          alt={product?.name || "Product"}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+        />
 
-
-        {/* Promo / New Label */}
-        {(hasPromotion || isNew) && (
-          <div className="absolute top-2 left-2">
-            {hasPromotion ? (
-              <span className="bg-[#D35400] text-white text-xs font-bold px-2 py-1 rounded-full shadow">
-                Promo
-              </span>
-            ) : (
-              <span className="bg-[#546258] text-white text-xs font-bold px-2 py-1 rounded-full shadow">
-                New
-              </span>
-            )}
-          </div>
-        )}
+        {/* Badges */}
+        <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+          {hasPromotion && discount > 0 && (
+            <span className="bg-rose text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+              -{discount}%
+            </span>
+          )}
+          {hasPromotion && !discount && (
+            <span className="bg-gold text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+              Sale
+            </span>
+          )}
+          {isNew && !hasPromotion && (
+            <span className="bg-midnight text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+              New
+            </span>
+          )}
+        </div>
 
         {/* Countdown */}
         {product?.promoEnd && (
-          <div className="absolute top-2 right-2">
-            <CircularCountdown endDate={product.promoEnd} size={36} />
+          <div className="absolute top-3 right-3">
+            <CircularCountdown endDate={product.promoEnd} size={32} />
           </div>
         )}
 
-        {/* Wishlist (top-right) */}
-        <button
-          onClick={() => addToWishlist(product)}
-          className="absolute  bottom-2 right-2 p-3 rounded-full bg-white/90 hover:bg-[#e4c98a] text-gray-700 hover:text-white shadow transition transform hover:scale-110"
-        >
-          <FaHeart className="text-sm sm:text-base" />
-        </button>
+        {/* Hover Actions */}
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute bottom-3 right-3 flex flex-col gap-2"
+            >
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); addToWishlist(product); }}
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-white shadow-premium hover:bg-rose hover:text-white text-midnight transition-colors"
+              >
+                <FiHeart size={15} />
+              </motion.button>
+              <Link href={`/product/${product._id}`}>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-9 h-9 flex items-center justify-center rounded-full bg-white shadow-premium hover:bg-midnight hover:text-white text-midnight transition-colors"
+                >
+                  <FiEye size={15} />
+                </motion.div>
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Details */}
-      <div className="p-3 flex flex-col gap-1.5">
+      <div className="p-4 flex flex-col gap-2 flex-1">
         <Link
           href={`/product/${product._id}`}
-          className="font-serif font-semibold text-sm sm:text-base text-gray-900 truncate hover:text-[#546258] transition-colors duration-300"
+          className={`${playfair.className} font-semibold text-sm text-midnight truncate hover:text-gold-dark transition-colors`}
         >
           {product.name}
         </Link>
 
-        <div className="flex items-center gap-2">
-          <p
-            className={`${overpass.className} text-base sm:text-lg font-bold text-[#546258]`}
-          >
-            {product.salePriceIncTax
-              ? formatPrice(product.salePriceIncTax)
-              : formatPrice(product.promoPrice)}
+        <div className="flex items-baseline gap-2">
+          <p className={`${overpass.className} text-base font-bold text-midnight`}>
+            {product.isPromotion && product.promoPrice
+              ? formatPrice(product.promoPrice)
+              : formatPrice(product.salePriceIncTax || product.price)}
           </p>
-          {hasPromotion && product.salePriceIncTax && (
-            <p
-              className={`${overpass.className} text-xs sm:text-sm text-gray-400 line-through`}
-            >
+          {hasPromotion && product.salePriceIncTax && product.promoPrice && (
+            <p className={`${overpass.className} text-xs text-[#8E95A2] line-through`}>
               {formatPrice(product.salePriceIncTax)}
             </p>
           )}
         </div>
       </div>
 
-      {/* Action Buttons */}
-      <div className="flex flex-col sm:flex-row justify-between gap-2 sm:gap-3 px-3 py-3 border-t border-gray-200 bg-white">
-        <button
-          onClick={() => addToCart(product)}
-          className="flex justify-center items-center gap-2 px-3 py-2 rounded-full bg-gradient-to-r from-[#546258] to-[#7A8E78] text-white text-sm sm:text-base font-semibold shadow hover:opacity-90 transition duration-300 transform hover:scale-105 w-full sm:w-auto"
+      {/* Add to Cart */}
+      <div className="px-4 pb-4">
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={handleAddToCart}
+          className={`flex justify-center items-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
+            addedToCart
+              ? "bg-green-50 text-green-700 border border-green-200"
+              : "bg-midnight text-white hover:bg-charcoal"
+          }`}
         >
-          <FaShoppingCart /> Cart
-        </button>
-
-        <Link
-          href={`/product/${product._id}`}
-          className="text-center px-3 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-100 transition duration-300 transform hover:scale-105 w-full sm:w-auto"
-        >
-          View Details
-        </Link>
+          <FiShoppingBag size={14} />
+          {addedToCart ? "Added!" : "Add to Bag"}
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 }

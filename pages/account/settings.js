@@ -73,7 +73,7 @@ export default function SettingsPage() {
             <div className="flex gap-2 mt-4">
               <button
                 disabled={saving}
-                className="px-4 py-2 bg-indigo-600 text-white rounded"
+                className="px-4 py-2 bg-[#0F1923] text-white rounded-lg hover:bg-[#1A2332] transition"
               >
                 {saving ? "Saving..." : "Save changes"}
               </button>
