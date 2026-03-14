@@ -19,7 +19,9 @@ export default function OrderConfirmation() {
 
     const fetchOrder = async () => {
       try {
-        const res = await axios.get(`/api/orders/${id}`);
+        const token = localStorage.getItem("token");
+        const headers = token ? { Authorization: `Bearer ${token}` } : {};
+        const res = await axios.get(`/api/orders/${id}`, { headers });
         if (res?.data?.order) setOrder(res.data.order);
         else setError("Order not found.");
       } catch (err) {

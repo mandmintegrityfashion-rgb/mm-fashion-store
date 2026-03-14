@@ -15,17 +15,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  // Authenticate the request
-  const authHeader = req.headers.authorization;
-  if (!authHeader?.startsWith("Bearer ")) {
-    return res.status(401).json({ error: "Authentication required" });
-  }
-
   try {
-    const token = authHeader.split(" ")[1];
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const userId = decoded.id || decoded._id;
-
     const order = await Order.findById(id)
       .populate("items.productId")
       .populate("cartProducts.productId")
@@ -35,9 +25,19 @@ export default async function handler(req, res) {
       return res.status(404).json({ error: "Order not found" });
     }
 
-    // Only allow the order owner to view it
-    if (order.customer.toString() !== userId) {
-      return res.status(403).json({ error: "Access denied" });
+    // If auth token is provided, verify ownership
+    const authHeader = req.headers.authorization;
+    if (authHeader?.startsWith("Bearer ")) {
+      try {
+        const token = authHeader.split(" ")[1];
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const userId = decoded.id || decoded._id;
+        if (order.customer && order.customer.toString() !== userId) {
+          return res.status(403).json({ error: "Access denied" });
+        }
+      } catch {
+        // Token invalid — fall through to return order by ID
+      }
     }
 
     return res.json({
@@ -45,9 +45,6 @@ export default async function handler(req, res) {
       order,
     });
   } catch (error) {
-    if (error.name === "JsonWebTokenError" || error.name === "TokenExpiredError") {
-      return res.status(401).json({ error: "Invalid or expired token" });
-    }
     console.error("Order Fetch Error:", error.message);
     return res.status(500).json({ error: "Internal Server Error" });
   }
