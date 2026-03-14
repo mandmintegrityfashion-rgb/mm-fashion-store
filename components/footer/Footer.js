@@ -12,7 +12,7 @@ const playfair = Playfair_Display({
 
 export default function Footer({ onOpenPage }) {
   return (
-    <footer className="bg-[#0F1923] text-white pt-16 pb-8">
+    <footer className="bg-[#1F2D3D] text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 px-6">
         {/* Brand Info */}
         <div className="flex flex-col space-y-4">
@@ -20,13 +20,13 @@ export default function Footer({ onOpenPage }) {
             <img src="/images/Logo.png" alt="M&M Logo" className="w-12 h-12 rounded-lg" />
             <div className="flex flex-col -ml-1">
               <span className={`${playfair.className} text-lg font-bold text-white`}>M&M</span>
-              <span className=\"text-xs font-medium text-[#4C9EFF] tracking-wider\">FASHION</span>
+              <span className="text-xs font-medium text-[#4C9EFF] tracking-wider">FASHION</span>
             </div>
           </div>
           <p className="text-[#8E95A2] text-sm leading-relaxed">Lekki Scheme 2, Lagos, Nigeria</p>
           <p className="text-[#8E95A2] text-sm">
             Email:{" "}
-            <a href=\"mailto:mandmintegrityfashion@gmail.com\" className=\"text-[#4C9EFF] hover:text-white transition-colors\">
+            <a href="mailto:mandmintegrityfashion@gmail.com" className="text-[#4C9EFF] hover:text-white transition-colors">
               mandmintegrityfashion<br />@gmail.com
             </a>
           </p>
@@ -41,7 +41,7 @@ export default function Footer({ onOpenPage }) {
               <li key={page}>
                 <button
                   onClick={() => onOpenPage(page)}
-                  className="text-[#8E95A2] hover:text-[#C9A96E] transition-colors text-sm"
+                  className="text-[#8E95A2] hover:text-[#4C9EFF] transition-colors text-sm"
                 >
                   {page.replace(/([A-Z])/g, " $1").trim()}
                 </button>
@@ -58,7 +58,7 @@ export default function Footer({ onOpenPage }) {
               <li key={page}>
                 <button
                   onClick={() => onOpenPage(page)}
-                  className="text-[#8E95A2] hover:text-[#C9A96E] transition-colors text-sm"
+                  className="text-[#8E95A2] hover:text-[#4C9EFF] transition-colors text-sm"
                 >
                   {page.replace(/([A-Z])/g, " $1").trim()}
                 </button>
@@ -93,13 +93,13 @@ export default function Footer({ onOpenPage }) {
         </span>
         <div className="flex items-center gap-4">
           <a href="https://web.facebook.com/people/Allure-Suite/61567780641202/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"
-            className="text-[#5A6171] hover:text-[#C9A96E] transition-colors"><FaFacebook size={16} /></a>
+            className="text-[#5A6171] hover:text-[#4C9EFF] transition-colors"><FaFacebook size={16} /></a>
           <a href="#" aria-label="Twitter" target="_blank" rel="noopener noreferrer"
-            className="text-[#5A6171] hover:text-[#C9A96E] transition-colors"><FaTwitter size={16} /></a>
+            className="text-[#5A6171] hover:text-[#4C9EFF] transition-colors"><FaTwitter size={16} /></a>
           <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"
-            className="text-[#5A6171] hover:text-[#C9A96E] transition-colors"><FaInstagram size={16} /></a>
+            className="text-[#5A6171] hover:text-[#4C9EFF] transition-colors"><FaInstagram size={16} /></a>
           <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"
-            className="text-[#5A6171] hover:text-[#C9A96E] transition-colors"><FaLinkedin size={16} /></a>
+            className="text-[#5A6171] hover:text-[#4C9EFF] transition-colors"><FaLinkedin size={16} /></a>
         </div>
       </div>
     </footer>

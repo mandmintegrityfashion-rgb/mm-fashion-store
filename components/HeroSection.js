@@ -225,10 +225,10 @@ export default function HeroSection() {
               <button
                 key={idx}
                 onClick={() => { setDirection(idx > current ? 1 : -1); setCurrent(idx); }}
-                className="relative w-8 h-1.5 rounded-full overflow-hidden bg-[#D4E3F7] transition-all\"
+                className="relative w-8 h-1.5 rounded-full overflow-hidden bg-[#D4E3F7] transition-all"
               >
                 <motion.div
-                  className=\"absolute inset-0 bg-[#4C9EFF] rounded-full\"
+                  className="absolute inset-0 bg-[#4C9EFF] rounded-full"
                   initial={false}
                   animate={{ scaleX: idx === current ? 1 : 0 }}
                   transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}

@@ -41,7 +41,7 @@ export default function CategoryList() {
   };
 
   return (
-    <section className="bg-[#FDFBF7] py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#F7FAFC] py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -50,7 +50,7 @@ export default function CategoryList() {
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <h2 className={`${playfair.className} text-3xl md:text-4xl font-bold text-[#0F1923]`}>
+          <h2 className={`${playfair.className} text-3xl md:text-4xl font-bold text-[#1F2D3D]`}>
             Shop by Category
           </h2>
           <div className="w-12 h-0.5 bg-[#4C9EFF] mx-auto mt-3 rounded-full" />
@@ -60,13 +60,13 @@ export default function CategoryList() {
           {/* Scroll buttons */}
           <button
             onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm sm:hidden"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#1F2D3D] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm sm:hidden"
           >
             <FiChevronLeft size={18} />
           </button>
           <button
             onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm sm:hidden"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#1F2D3D] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm sm:hidden"
           >
             <FiChevronRight size={18} />
           </button>

@@ -16,8 +16,8 @@ export default function AccountDropdown() {
         onClick={() => setOpen((v) => !v)}
         className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 ${
           customer
-            ? "bg-[#0F1923] text-white hover:bg-[#1A2332] shadow-sm"
-            : "bg-[#F5F0E8] text-[#5A6171] hover:bg-[#E8E0D4]"
+            ? "bg-[#1F2D3D] text-white hover:bg-[#1A2332] shadow-sm"
+            : "bg-[#E6F0FA] text-[#5A6171] hover:bg-[#D4E3F7]"
         }`}
         aria-label="Account"
       >
@@ -31,19 +31,19 @@ export default function AccountDropdown() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 mt-3 w-56 bg-white rounded-xl border border-[#F0EBE3] overflow-hidden z-50"
-            style={{ boxShadow: "0 8px 32px rgba(15,25,35,0.1)" }}
+            className="absolute right-0 mt-3 w-56 bg-white rounded-xl border border-[#E6F0FA] overflow-hidden z-50"
+            style={{ boxShadow: "0 8px 32px rgba(31,45,61,0.1)" }}
           >
             {customer ? (
               <div className="p-4">
-                <p className="text-[#0F1923] font-semibold text-sm">{customer.name}</p>
+                <p className="text-[#1F2D3D] font-semibold text-sm">{customer.name}</p>
                 <p className="text-[10px] text-[#4C9EFF] uppercase tracking-wider mt-0.5">Member</p>
 
-                <div className="h-px bg-[#F0EBE3] my-3" />
+                <div className="h-px bg-[#E6F0FA] my-3" />
 
                 <Link
                   href="/account"
-                  className="flex items-center justify-between text-sm text-[#5A6171] font-medium py-2 px-3 rounded-lg hover:bg-[#F5F0E8] hover:text-[#0F1923] transition-colors"
+                  className="flex items-center justify-between text-sm text-[#5A6171] font-medium py-2 px-3 rounded-lg hover:bg-[#E6F0FA] hover:text-[#1F2D3D] transition-colors"
                   onClick={() => setOpen(false)}
                 >
                   My Account
@@ -63,7 +63,7 @@ export default function AccountDropdown() {
 
                 <Link
                   href="/login"
-                  className="block text-sm font-semibold text-[#0F1923] py-2.5 px-3 rounded-lg bg-[#F5F0E8] hover:bg-[#E8E0D4] transition-colors text-center mb-2"
+                  className="block text-sm font-semibold text-[#1F2D3D] py-2.5 px-3 rounded-lg bg-[#E6F0FA] hover:bg-[#D4E3F7] transition-colors text-center mb-2"
                   onClick={() => setOpen(false)}
                 >
                   Sign In
@@ -71,7 +71,7 @@ export default function AccountDropdown() {
 
                 <Link
                   href="/register"
-              <medium  className="block text-sm font-medium text-[#1A5DAB] py-2 px-3 rounded-lg hover:bg-[#E6F0FA] transition-colors text-center\"
+                  className="block text-sm font-medium text-[#1A5DAB] py-2 px-3 rounded-lg hover:bg-[#E6F0FA] transition-colors text-center"
                   onClick={() => setOpen(false)}
                 >
                   Create Account

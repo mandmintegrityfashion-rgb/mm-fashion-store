@@ -129,7 +129,7 @@ export default function Carousel({ products, title, color, bg }) {
         {canScrollLeft && (
           <button
             onClick={() => scroll(-1)}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#1F2D3D] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm"
           >
             <FiChevronLeft size={28} />
           </button>
@@ -137,7 +137,7 @@ export default function Carousel({ products, title, color, bg }) {
         {canScrollRight && (
           <button
             onClick={() => scroll(1)}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#1F2D3D] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm"
           >
             <FiChevronRight size={28} />
           </button>
@@ -188,10 +188,9 @@ export default function Carousel({ products, title, color, bg }) {
                   behavior: "smooth",
                 });
               }}
-              className={`w-2 h-2 rounded-full ${
-            className="w-2.5 h-2.5 rounded-full transition-all mx-1 cursor-pointer" style={{ backgroundColor: i === activeIndex ? "#4C9EFF" : "#D4E3F7" }};
-                  onClick={() => setActiveIndex(i)};
-              } transition-all`}
+              className={`w-2.5 h-2.5 rounded-full transition-all mx-1 cursor-pointer ${
+                i === Math.floor((scrollRef.current?.scrollLeft || 0) / (scrollRef.current?.clientWidth || 1)) ? "bg-[#4C9EFF]" : "bg-[#D4E3F7]"
+              }`}
             />
           ))}
         </div>

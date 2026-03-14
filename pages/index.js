@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { createElement } from "react";
 import useSWR from "swr";
 import Head from "next/head";
@@ -74,14 +74,14 @@ export default function Home({ products, categories }) {
         <meta name="description" content="Shop the best deals on M&M Fashion Store" />
       </Head>
 
-      <div className={`${playfair.className} bg-[#FDFBF7] min-h-screen`}>
+      <div className={`${playfair.className} bg-[#F7FAFC] min-h-screen`}>
         <Navbar />
         <HeroSection />
         <CategoryList />
 
         {/* Flash Sales */}
         {flashProducts?.length > 0 && (
-          <Section title="Flash Sales" bg="bg-gradient-to-r from-[#FEF7EC] via-[#FDFBF7] to-[#FEF7EC]">
+          <Section title="Flash Sales" bg="bg-gradient-to-r from-[#EBF4FF] via-[#F7FAFC] to-[#EBF4FF]">
             <div className="relative">
               <div
                 id="flash-scroll"
@@ -103,13 +103,13 @@ export default function Home({ products, categories }) {
 
               <button
                 onClick={() => scrollBy("flash-scroll", -300)}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm hidden sm:flex"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#1F2D3D] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm hidden sm:flex"
               >
                 <FiChevronLeft size={18} />
               </button>
               <button
                 onClick={() => scrollBy("flash-scroll", 300)}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm hidden sm:flex"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-10 h-10 bg-white border border-[#D4E3F7] text-[#1F2D3D] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm hidden sm:flex"
               >
                 <FiChevronRight size={18} />
               </button>
@@ -120,8 +120,8 @@ export default function Home({ products, categories }) {
         {/* Category Sections */}
         {categories?.length > 0 ? (
           categories.map((cat) => (
-            <Section key={cat._id} title={cat.name} bg="bg-[#FDFBF7]">
-              <div className="relative bg-white rounded-2xl p-4 sm:p-6 border border-[#F0EBE3]" style={{ boxShadow: "0 2px 12px rgba(15,25,35,0.04)" }}>
+            <Section key={cat._id} title={cat.name} bg="bg-[#F7FAFC]">
+              <div className="relative bg-white rounded-2xl p-4 sm:p-6 border border-[#E6F0FA]" style={{ boxShadow: "0 2px 12px rgba(31,45,61,0.04)" }}>
                 <div
                   id={`cat-scroll-${cat._id}`}
                   className="flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth hide-scrollbar snap-x snap-mandatory"
@@ -142,13 +142,13 @@ export default function Home({ products, categories }) {
 
                 <button
                   onClick={() => scrollBy(`cat-scroll-${cat._id}`, -300)}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm hidden sm:flex"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-[#D4E3F7] text-[#1F2D3D] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm hidden sm:flex"
                 >
                   <FiChevronLeft size={16} />
                 </button>
                 <button
                   onClick={() => scrollBy(`cat-scroll-${cat._id}`, 300)}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-[#E8E0D4] text-[#0F1923] rounded-full flex items-center justify-center hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all z-10 shadow-sm hidden sm:flex"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-[#D4E3F7] text-[#1F2D3D] rounded-full flex items-center justify-center hover:border-[#4C9EFF] hover:text-[#4C9EFF] transition-all z-10 shadow-sm hidden sm:flex"
                 >
                   <FiChevronRight size={16} />
                 </button>
@@ -157,7 +157,7 @@ export default function Home({ products, categories }) {
                   <div className="text-center sm:text-right mt-4">
                     <Link
                       href={`/product?category=${cat.slug || cat._id}`}
-                      className="text-[#A88B4A] font-semibold hover:text-[#C9A96E] transition-colors text-sm inline-flex items-center gap-1"
+                      className="text-[#1A5DAB] font-semibold hover:text-[#4C9EFF] transition-colors text-sm inline-flex items-center gap-1"
                     >
                       See All <FiChevronRight size={14} />
                     </Link>
@@ -184,8 +184,8 @@ export default function Home({ products, categories }) {
             moreProducts?.map((p) => ({ ...p, cardComponent: ProductCard })) || []
           }
           title="Products You May Like"
-          color="text-[#0F1923]"
-          bg="bg-[#F5F0E8]"
+          color="text-[#1F2D3D]"
+          bg="bg-[#F1F5F9]"
         />
 
         {/* Footer */}
@@ -197,12 +197,12 @@ export default function Home({ products, categories }) {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.2 }}
-              className="bg-white rounded-2xl w-full max-w-3xl p-6 overflow-y-auto max-h-[90vh] relative border border-[#F0EBE3]"
-              style={{ boxShadow: "0 16px 48px rgba(15,25,35,0.12)" }}
+              className="bg-white rounded-2xl w-full max-w-3xl p-6 overflow-y-auto max-h-[90vh] relative border border-[#E6F0FA]"
+              style={{ boxShadow: "0 16px 48px rgba(31,45,61,0.12)" }}
             >
               <button
                 onClick={handleClosePage}
-                className="absolute top-4 right-4 text-[#8E95A2] hover:text-[#0F1923] transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F5F0E8]"
+                className="absolute top-4 right-4 text-[#8E95A2] hover:text-[#1F2D3D] transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F1F5F9]"
               >
                 <span className="text-lg font-bold">&times;</span>
               </button>

@@ -17,10 +17,10 @@ export default function Section({ title, bg = "bg-white", children, className = 
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <h2 className={`${playfair.className} text-3xl md:text-4xl font-bold text-[#0F1923]`}>
+          <h2 className={`${playfair.className} text-3xl md:text-4xl font-bold text-[#1F2D3D]`}>
             {title}
           </h2>
-          <div className="w-12 h-0.5 bg-[#C9A96E] mx-auto mt-3 rounded-full" />
+          <div className="w-12 h-0.5 bg-[#4C9EFF] mx-auto mt-3 rounded-full" />
         </motion.div>
         <div>{children}</div>
       </div>

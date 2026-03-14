@@ -20,7 +20,7 @@ export default function CategoryCard({ title, image, href }) {
         />
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0F1923]/80 via-[#0F1923]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1F2D3D]/80 via-[#1F2D3D]/30 to-transparent" />
 
         {/* Title */}
         <div className="absolute inset-0 flex flex-col items-center justify-end pb-6">

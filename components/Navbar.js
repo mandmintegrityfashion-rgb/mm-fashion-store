@@ -94,7 +94,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -8, scale: 0.96 }}
           transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-          className="absolute top-full right-0 mt-3 w-80 bg-white rounded-2xl shadow-premium-xl overflow-hidden z-50 border border-[#E8E0D4]"
+          className="absolute top-full right-0 mt-3 w-80 bg-white rounded-2xl shadow-premium-xl overflow-hidden z-50 border border-[#E6F0FA]"
         >
           {children}
         </motion.div>
@@ -326,7 +326,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-              className="md:hidden overflow-hidden border-t border-[#E8E0D4]"
+              className="md:hidden overflow-hidden border-t border-[#E6F0FA]"
             >
               <div className="px-6 py-6 space-y-2 bg-white">
                 {navLinks.map((link, i) => (
@@ -346,7 +346,7 @@ export default function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
-                <div className="pt-4 border-t border-[#E8E0D4]">
+                <div className="pt-4 border-t border-[#E6F0FA]">
                   <AccountDropdown />
                 </div>
               </div>
