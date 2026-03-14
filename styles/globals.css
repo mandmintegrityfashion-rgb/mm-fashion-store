@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+/* Brand Colors */
+:root {
+  --luxuryGreen: #546258;
+  --royalCream: #F8ECDC;
+  --lightGoldGradient: #BA936F;
+
+  --background: var(--royalCream);
+  --foreground: var(--luxuryGreen);
+  --primary: var(--lightGoldGradient);
+
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: monospace;
+}
+
+/* Global Styles */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic Utility Classes */
+
+/* Hide scrollbar for all browsers */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
