@@ -32,7 +32,7 @@ export default function LearnMore() {
   return (
     <>
       <Head>
-        <title>Learn More | Chioma Hair - Hair Care Guide & Brand Story</title>
+        <title>Learn More | M&M Fashion - Style Guide & Brand Story</title>
         <meta
           name="description"
           content="Discover the science behind beautiful hair. Learn about our premium collection, hair care tips, product benefits, and commitment to quality."
@@ -40,7 +40,7 @@ export default function LearnMore() {
         <meta name="keywords" content="hair care, wigs, extensions, hair care tips, luxury hair products" />
       </Head>
 
-      <div className={`${playfair.className} bg-gradient-to-b from-white via-[#F8ECDC]/10 to-white min-h-screen`}>
+      <div className={`${playfair.className} bg-gradient-to-b from-white via-[#E8F0FE]/10 to-white min-h-screen`}>
         <Navbar />
 
         {/* Hero Section */}
@@ -51,7 +51,7 @@ export default function LearnMore() {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-6xl font-bold mb-6 font-serif"
             style={{
-              background: "linear-gradient(135deg, #1a1a1a, #546258)",
+              background: "linear-gradient(135deg, #1a1a1a, #1F2D3D)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -71,14 +71,14 @@ export default function LearnMore() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="h-1 w-100 bg-gradient-to-r from-transparent via-[#D9B48A] to-transparent mx-auto"
+            className="h-1 w-100 bg-gradient-to-r from-transparent via-[#4C9EFF] to-transparent mx-auto"
           ></motion.div>
         </section>
 
         {/* Our Collections */}
         <section className="max-w-7xl mx-auto px-4 py-20">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 font-serif" style={{ color: "#546258" }}>
+            <h2 className="text-4xl font-bold mb-4 font-serif" style={{ color: "#1F2D3D" }}>
               Our Collections
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -96,16 +96,16 @@ export default function LearnMore() {
             {/* Wigs */}
             <motion.div
               variants={fadeInUp}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-[#D9B48A]/20 hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-2xl p-8 shadow-lg border border-[#4C9EFF]/20 hover:shadow-xl transition-shadow duration-300"
               style={{ isolation: "isolate" }}
             >
               <div
                 className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
-                style={{ background: "linear-gradient(135deg, #546258, #6b7a66)" }}
+                style={{ background: "linear-gradient(135deg, #1F2D3D, #2A3F55)" }}
               >
                 <FiAward className="text-white" size={32} />
               </div>
-              <h3 className="text-2xl font-bold mb-3 font-serif" style={{ color: "#546258" }}>
+              <h3 className="text-2xl font-bold mb-3 font-serif" style={{ color: "#1F2D3D" }}>
                 Premium Wigs
               </h3>
               <p className="text-gray-600 mb-6">
@@ -113,19 +113,19 @@ export default function LearnMore() {
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   Full lace & frontal designs
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   Breathable cap construction
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   Heat resistant fibers
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   30+ day wear guarantee
                 </li>
               </ul>
@@ -134,16 +134,16 @@ export default function LearnMore() {
             {/* Hair Extensions */}
             <motion.div
               variants={fadeInUp}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-[#D9B48A]/20 hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-2xl p-8 shadow-lg border border-[#4C9EFF]/20 hover:shadow-xl transition-shadow duration-300"
               style={{ isolation: "isolate" }}
             >
               <div
                 className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
-                style={{ background: "linear-gradient(135deg, #D9B48A, #e8c89c)" }}
+                style={{ background: "linear-gradient(135deg, #4C9EFF, #7AB8FF)" }}
               >
                 <FiTrendingUp className="text-white" size={32} />
               </div>
-              <h3 className="text-2xl font-bold mb-3 font-serif" style={{ color: "#546258" }}>
+              <h3 className="text-2xl font-bold mb-3 font-serif" style={{ color: "#1F2D3D" }}>
                 Hair Extensions
               </h3>
               <p className="text-gray-600 mb-6">
@@ -151,19 +151,19 @@ export default function LearnMore() {
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   Clip-in & tape-in options
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   Multiple length & color choices
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   Easy application & removal
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   Long-lasting durability
                 </li>
               </ul>
@@ -172,16 +172,16 @@ export default function LearnMore() {
             {/* Hair Care */}
             <motion.div
               variants={fadeInUp}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-[#D9B48A]/20 hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-2xl p-8 shadow-lg border border-[#4C9EFF]/20 hover:shadow-xl transition-shadow duration-300"
               style={{ isolation: "isolate" }}
             >
               <div
                 className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
-                style={{ background: "linear-gradient(135deg, #2d5f4f, #3a7561)" }}
+                style={{ background: "linear-gradient(135deg, #1A5DAB, #2B7CD4)" }}
               >
                 <FiHeart className="text-white" size={32} />
               </div>
-              <h3 className="text-2xl font-bold mb-3 font-serif" style={{ color: "#546258" }}>
+              <h3 className="text-2xl font-bold mb-3 font-serif" style={{ color: "#1F2D3D" }}>
                 Hair Care Products
               </h3>
               <p className="text-gray-600 mb-6">
@@ -189,19 +189,19 @@ export default function LearnMore() {
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   All-natural ingredients
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   Sulfate & paraben-free
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   Deep moisturizing formula
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <FiCheck className="text-[#D9B48A]" size={20} />
+                  <FiCheck className="text-[#4C9EFF]" size={20} />
                   Cruelty-free & eco-friendly
                 </li>
               </ul>
@@ -213,7 +213,7 @@ export default function LearnMore() {
               href="/product"
               className="inline-block px-8 py-3 rounded-lg font-semibold transition-all duration-300"
               style={{
-                background: "linear-gradient(135deg, #546258, #6b7a66)",
+                background: "linear-gradient(135deg, #1F2D3D, #2A3F55)",
                 color: "white",
               }}
             >
@@ -225,7 +225,7 @@ export default function LearnMore() {
         {/* Hair Care Tips */}
         <section className="max-w-7xl mx-auto px-4 py-20">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 font-serif" style={{ color: "#546258" }}>
+            <h2 className="text-4xl font-bold mb-4 font-serif" style={{ color: "#1F2D3D" }}>
               Hair Care Tips & Guide
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -243,32 +243,32 @@ export default function LearnMore() {
             {/* Wig Care */}
             <motion.div
               variants={fadeInUp}
-              className="bg-gradient-to-br from-[#F8ECDC]/50 to-white p-8 rounded-2xl border border-[#D9B48A]/30"
+              className="bg-gradient-to-br from-[#E8F0FE]/50 to-white p-8 rounded-2xl border border-[#4C9EFF]/30"
             >
-              <h3 className="text-2xl font-bold mb-4 font-serif" style={{ color: "#546258" }}>
+              <h3 className="text-2xl font-bold mb-4 font-serif" style={{ color: "#1F2D3D" }}>
                 Caring for Your Wigs
               </h3>
               <ul className="space-y-4 text-gray-700">
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">1.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">1.</span>
                   <span>
                     <strong>Wash Weekly:</strong> Use lukewarm water and specialized wig shampoo. Avoid hot water to preserve fiber quality.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">2.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">2.</span>
                   <span>
                     <strong>Condition Properly:</strong> Apply leave-in conditioner after washing to maintain softness and shine.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">3.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">3.</span>
                   <span>
                     <strong>Dry Correctly:</strong> Pat dry with a towel and let air dry on a wig stand. Avoid direct sunlight.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">4.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">4.</span>
                   <span>
                     <strong>Store Safely:</strong> Store on a wig head or in a protective bag to maintain shape and prevent tangling.
                   </span>
@@ -279,32 +279,32 @@ export default function LearnMore() {
             {/* Extension Care */}
             <motion.div
               variants={fadeInUp}
-              className="bg-gradient-to-br from-[#F8ECDC]/50 to-white p-8 rounded-2xl border border-[#D9B48A]/30"
+              className="bg-gradient-to-br from-[#E8F0FE]/50 to-white p-8 rounded-2xl border border-[#4C9EFF]/30"
             >
-              <h3 className="text-2xl font-bold mb-4 font-serif" style={{ color: "#546258" }}>
+              <h3 className="text-2xl font-bold mb-4 font-serif" style={{ color: "#1F2D3D" }}>
                 Maintaining Hair Extensions
               </h3>
               <ul className="space-y-4 text-gray-700">
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">1.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">1.</span>
                   <span>
                     <strong>Gentle Washing:</strong> Wash downward in the direction of hair flow, avoiding root areas.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">2.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">2.</span>
                   <span>
                     <strong>Deep Condition:</strong> Use protein-rich treatments weekly to prevent drying and breakage.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">3.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">3.</span>
                   <span>
                     <strong>Minimize Heat:</strong> Use heat protectant spray before styling. Low heat settings extend lifespan.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">4.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">4.</span>
                   <span>
                     <strong>Reduce Tangling:</strong> Brush from ends upward gently. Invest in a quality paddle brush.
                   </span>
@@ -315,32 +315,32 @@ export default function LearnMore() {
             {/* Natural Hair Care */}
             <motion.div
               variants={fadeInUp}
-              className="bg-gradient-to-br from-[#F8ECDC]/50 to-white p-8 rounded-2xl border border-[#D9B48A]/30"
+              className="bg-gradient-to-br from-[#E8F0FE]/50 to-white p-8 rounded-2xl border border-[#4C9EFF]/30"
             >
-              <h3 className="text-2xl font-bold mb-4 font-serif" style={{ color: "#546258" }}>
+              <h3 className="text-2xl font-bold mb-4 font-serif" style={{ color: "#1F2D3D" }}>
                 Natural Hair Care
               </h3>
               <ul className="space-y-4 text-gray-700">
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">1.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">1.</span>
                   <span>
                     <strong>Moisturize Daily:</strong> Use leave-in conditioner and natural oils (argan, coconut) for hydration.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">2.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">2.</span>
                   <span>
                     <strong>Deep Condition Weekly:</strong> Intensive treatments restore moisture and repair damage.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">3.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">3.</span>
                   <span>
                     <strong>Protective Styling:</strong> Braid and bun styles protect ends and reduce breakage.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">4.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">4.</span>
                   <span>
                     <strong>Trim Regularly:</strong> Every 8-12 weeks to maintain health and prevent split ends.
                   </span>
@@ -351,32 +351,32 @@ export default function LearnMore() {
             {/* Accessories Care */}
             <motion.div
               variants={fadeInUp}
-              className="bg-gradient-to-br from-[#F8ECDC]/50 to-white p-8 rounded-2xl border border-[#D9B48A]/30"
+              className="bg-gradient-to-br from-[#E8F0FE]/50 to-white p-8 rounded-2xl border border-[#4C9EFF]/30"
             >
-              <h3 className="text-2xl font-bold mb-4 font-serif" style={{ color: "#546258" }}>
+              <h3 className="text-2xl font-bold mb-4 font-serif" style={{ color: "#1F2D3D" }}>
                 Hair Accessories Guide
               </h3>
               <ul className="space-y-4 text-gray-700">
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">1.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">1.</span>
                   <span>
                     <strong>Choose Quality Materials:</strong> Silk/satin reduces friction better than cotton.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">2.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">2.</span>
                   <span>
                     <strong>Use Proper Tools:</strong> Wide-tooth combs and paddle brushes minimize hair damage.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">3.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">3.</span>
                   <span>
                     <strong>Avoid Tight Styles:</strong> Excessive tension causes hair loss and thinning.
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="font-bold text-[#546258] min-w-fit">4.</span>
+                  <span className="font-bold text-[#1F2D3D] min-w-fit">4.</span>
                   <span>
                     <strong>Protect at Night:</strong> Sleep on silk pillowcases to prevent friction damage.
                   </span>
@@ -387,10 +387,10 @@ export default function LearnMore() {
         </section>
 
         {/* Why Choose Us */}
-        <section className="max-w-7xl mx-auto px-4 py-20 bg-gradient-to-r from-[#546258]/5 to-[#D9B48A]/5 rounded-3xl">
+        <section className="max-w-7xl mx-auto px-4 py-20 bg-gradient-to-r from-[#1F2D3D]/5 to-[#4C9EFF]/5 rounded-3xl">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 font-serif" style={{ color: "#546258" }}>
-              Why Choose Chioma Hair
+            <h2 className="text-4xl font-bold mb-4 font-serif" style={{ color: "#1F2D3D" }}>
+              Why Choose M&M Fashion
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Quality, authenticity, and customer satisfaction are at the heart of everything we do.
@@ -410,11 +410,11 @@ export default function LearnMore() {
             >
               <div
                 className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
-                style={{ background: "linear-gradient(135deg, #546258, #6b7a66)" }}
+                style={{ background: "linear-gradient(135deg, #1F2D3D, #2A3F55)" }}
               >
                 <FiAward className="text-white" size={40} />
               </div>
-              <h3 className="text-xl font-bold mb-2" style={{ color: "#546258" }}>
+              <h3 className="text-xl font-bold mb-2" style={{ color: "#1F2D3D" }}>
                 Premium Quality
               </h3>
               <p className="text-gray-600">
@@ -428,11 +428,11 @@ export default function LearnMore() {
             >
               <div
                 className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
-                style={{ background: "linear-gradient(135deg, #D9B48A, #e8c89c)" }}
+                style={{ background: "linear-gradient(135deg, #4C9EFF, #7AB8FF)" }}
               >
                 <FiShield className="text-white" size={40} />
               </div>
-              <h3 className="text-xl font-bold mb-2" style={{ color: "#546258" }}>
+              <h3 className="text-xl font-bold mb-2" style={{ color: "#1F2D3D" }}>
                 Guaranteed Service
               </h3>
               <p className="text-gray-600">
@@ -446,11 +446,11 @@ export default function LearnMore() {
             >
               <div
                 className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
-                style={{ background: "linear-gradient(135deg, #2d5f4f, #3a7561)" }}
+                style={{ background: "linear-gradient(135deg, #1A5DAB, #2B7CD4)" }}
               >
                 <FiGift className="text-white" size={40} />
               </div>
-              <h3 className="text-xl font-bold mb-2" style={{ color: "#546258" }}>
+              <h3 className="text-xl font-bold mb-2" style={{ color: "#1F2D3D" }}>
                 Exclusive Benefits
               </h3>
               <p className="text-gray-600">
@@ -463,7 +463,7 @@ export default function LearnMore() {
         {/* Quality Standards */}
         <section className="max-w-7xl mx-auto px-4 py-20">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 font-serif" style={{ color: "#546258" }}>
+            <h2 className="text-4xl font-bold mb-4 font-serif" style={{ color: "#1F2D3D" }}>
               Our Quality Standards
             </h2>
           </motion.div>
@@ -479,13 +479,13 @@ export default function LearnMore() {
               <div className="flex-shrink-0">
                 <div
                   className="flex items-center justify-center h-12 w-12 rounded-lg"
-                  style={{ background: "linear-gradient(135deg, #546258, #6b7a66)" }}
+                  style={{ background: "linear-gradient(135deg, #1F2D3D, #2A3F55)" }}
                 >
                   <FiCheck className="text-white" size={24} />
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: "#546258" }}>
+                <h3 className="text-lg font-bold mb-2" style={{ color: "#1F2D3D" }}>
                   Ethical Sourcing
                 </h3>
                 <p className="text-gray-600">
@@ -498,13 +498,13 @@ export default function LearnMore() {
               <div className="flex-shrink-0">
                 <div
                   className="flex items-center justify-center h-12 w-12 rounded-lg"
-                  style={{ background: "linear-gradient(135deg, #D9B48A, #e8c89c)" }}
+                  style={{ background: "linear-gradient(135deg, #4C9EFF, #7AB8FF)" }}
                 >
                   <FiCheck className="text-white" size={24} />
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: "#546258" }}>
+                <h3 className="text-lg font-bold mb-2" style={{ color: "#1F2D3D" }}>
                   Quality Testing
                 </h3>
                 <p className="text-gray-600">
@@ -517,13 +517,13 @@ export default function LearnMore() {
               <div className="flex-shrink-0">
                 <div
                   className="flex items-center justify-center h-12 w-12 rounded-lg"
-                  style={{ background: "linear-gradient(135deg, #2d5f4f, #3a7561)" }}
+                  style={{ background: "linear-gradient(135deg, #1A5DAB, #2B7CD4)" }}
                 >
                   <FiCheck className="text-white" size={24} />
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: "#546258" }}>
+                <h3 className="text-lg font-bold mb-2" style={{ color: "#1F2D3D" }}>
                   Expert Curation
                 </h3>
                 <p className="text-gray-600">
@@ -536,13 +536,13 @@ export default function LearnMore() {
               <div className="flex-shrink-0">
                 <div
                   className="flex items-center justify-center h-12 w-12 rounded-lg"
-                  style={{ background: "linear-gradient(135deg, #546258, #6b7a66)" }}
+                  style={{ background: "linear-gradient(135deg, #1F2D3D, #2A3F55)" }}
                 >
                   <FiCheck className="text-white" size={24} />
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: "#546258" }}>
+                <h3 className="text-lg font-bold mb-2" style={{ color: "#1F2D3D" }}>
                   Customer Feedback
                 </h3>
                 <p className="text-gray-600">
@@ -556,7 +556,7 @@ export default function LearnMore() {
         {/* CTA Section */}
         <section className="max-w-7xl mx-auto px-4 py-20 text-center">
           <motion.div {...fadeInUp}>
-            <h2 className="text-4xl font-bold mb-6 font-serif" style={{ color: "#546258" }}>
+            <h2 className="text-4xl font-bold mb-6 font-serif" style={{ color: "#1F2D3D" }}>
               Ready to Transform Your Hair?
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -567,7 +567,7 @@ export default function LearnMore() {
                 href="/product"
                 className="px-8 py-4 rounded-lg font-semibold transition-all duration-300 "
                 style={{
-                  background: "linear-gradient(135deg, #6b7a66, #6b7a66)",
+                  background: "linear-gradient(135deg, #2A3F55, #2A3F55)",
                   color: "#eaeceb"
                 }}
               >
@@ -577,8 +577,8 @@ export default function LearnMore() {
                 href="/contact"
                 className="px-8 py-4 rounded-lg font-semibold transition-all duration-300 border-2"
                 style={{
-                  borderColor: "#546258",
-                  color: "#546258",
+                  borderColor: "#1F2D3D",
+                  color: "#1F2D3D",
                 }}
               >
                 Contact Us

@@ -41,8 +41,8 @@ export default function ContactForm() {
         type="submit"
         className="px-4 py-2 rounded hover:opacity-90"
         style={{
-          backgroundColor: "#004D40", // luxuryGreen
-          color: "#F8ECDC", // royalCream
+          backgroundColor: "#1F2D3D",
+          color: "#FFFFFF"
         }}
       >
         Send

@@ -15,11 +15,11 @@ export default function Custom404() {
   return (
     <>
       <Head>
-        <title>404 - Page Not Found | Chioma Hair</title>
+        <title>404 - Page Not Found | M&M Fashion</title>
         <meta name="description" content="Sorry, the page you're looking for doesn't exist." />
       </Head>
 
-      <div className={`${playfair.className} bg-gradient-to-b from-white via-[#F8ECDC]/20 to-white min-h-screen flex flex-col`}>
+      <div className={`${playfair.className} bg-gradient-to-b from-white via-[#E8F0FE]/20 to-white min-h-screen flex flex-col`}>
         <Navbar />
 
         <div className="flex-1 flex items-center justify-center px-4 py-16">
@@ -32,17 +32,17 @@ export default function Custom404() {
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.1 }}
-              className="text-9xl font-bold text-luxuryGreen/20 mb-4"
+              className="text-9xl font-bold text-[#4C9EFF]/20 mb-4"
             >
               404
             </motion.div>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#1F2D3D] mb-4">
               Page Not Found
             </h1>
 
             <p className="text-lg text-gray-600 mb-8">
-              Sorry, the page you're looking for doesn't exist or has been moved.
+              Sorry, the page you&apos;re looking for doesn&apos;t exist or has been moved.
             </p>
 
             <motion.div
@@ -53,7 +53,7 @@ export default function Custom404() {
             >
               <Link
                 href="/"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-luxuryGreen to-[#6B7A66] text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#4C9EFF] text-white rounded-xl font-semibold hover:bg-[#1A5DAB] hover:shadow-lg transition-all"
               >
                 <FiHome size={20} />
                 Back to Home
@@ -61,7 +61,7 @@ export default function Custom404() {
 
               <Link
                 href="/shop/shop"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-luxuryGreen text-luxuryGreen rounded-lg font-semibold hover:bg-luxuryGreen/10 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#4C9EFF] text-[#4C9EFF] rounded-xl font-semibold hover:bg-[#4C9EFF]/10 transition-all"
               >
                 Continue Shopping
                 <FiArrowRight size={20} />
@@ -70,7 +70,7 @@ export default function Custom404() {
 
             <p className="mt-12 text-sm text-gray-500">
               If you believe this is an error, please{" "}
-              <Link href="/contact" className="text-luxuryGreen hover:underline font-semibold">
+              <Link href="/contact" className="text-[#4C9EFF] hover:underline font-semibold">
                 contact us
               </Link>
             </p>

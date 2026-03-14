@@ -11,7 +11,7 @@ export default function Feedback() {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4 text-[#546258]">We Value Your Feedback</h2>
+      <h2 className="text-2xl font-bold mb-4 text-[#1F2D3D]">We Value Your Feedback</h2>
       <p className="mb-4">
         Help us improve by sharing your thoughts and suggestions.
       </p>

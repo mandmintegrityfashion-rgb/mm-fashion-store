@@ -108,6 +108,11 @@ export const WishlistProvider = ({ children }) => {
   // --- Derived values ---
   const wishlistCount = useMemo(() => wishlist.length, [wishlist]);
 
+  const isInWishlist = useCallback(
+    (productId) => wishlist.some((i) => (i._id || i.product?._id) === productId),
+    [wishlist]
+  );
+
   const value = useMemo(
     () => ({
       wishlist,
@@ -115,8 +120,9 @@ export const WishlistProvider = ({ children }) => {
       removeFromWishlist,
       clearWishlist,
       wishlistCount,
+      isInWishlist,
     }),
-    [wishlist, addToWishlist, removeFromWishlist, clearWishlist, wishlistCount]
+    [wishlist, addToWishlist, removeFromWishlist, clearWishlist, wishlistCount, isInWishlist]
   );
 
   return (

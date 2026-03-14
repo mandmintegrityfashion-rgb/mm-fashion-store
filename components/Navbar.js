@@ -57,7 +57,7 @@ export default function Navbar() {
     reloadCart,
   } = useCart();
   const { wishlist, removeFromWishlist } = useWishlist();
-  const { sessionWarning, dismissWarning, logout } = useAuth();
+  const { sessionWarning, dismissWarning, logout, customer } = useAuth();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -201,6 +201,15 @@ export default function Navbar() {
               <Dropdown isOpen={wishlistOpen} innerRef={wishlistRef}>
                 <div className="p-4">
                   <h3 className={`${playfair.className} text-lg font-semibold text-midnight mb-3`}>Wishlist</h3>
+                  {!customer && wishlist.length === 0 ? (
+                    <div className="text-center py-6 space-y-3">
+                      <FiHeart size={24} className="mx-auto text-[#D4E3F7]" />
+                      <p className="text-sm text-[#8E95A2]">Sign in to save your wishlist</p>
+                      <Link href="/login" className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-[#4C9EFF] text-white text-sm font-medium hover:bg-[#1A5DAB] transition-colors">
+                        Sign In <FiArrowRight size={14} />
+                      </Link>
+                    </div>
+                  ) : (
                   <div className="max-h-64 overflow-y-auto space-y-3">
                     {wishlist.length === 0 ? (
                       <p className="text-center py-8 text-sm text-[#8E95A2]">Your wishlist is empty</p>
@@ -222,10 +231,11 @@ export default function Navbar() {
                       })
                     )}
                   </div>
+                  )}
                 </div>
                 {wishlist.length > 0 && (
                   <div className="border-t border-[#D4E3F7] p-4">
-                    <Link href="/wishlist" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-midnight text-white text-sm font-medium hover:bg-charcoal transition-colors">
+                    <Link href="/wishlist" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[#4C9EFF] text-white text-sm font-medium hover:bg-[#1A5DAB] transition-colors">
                       View Wishlist <FiArrowRight size={14} />
                     </Link>
                   </div>

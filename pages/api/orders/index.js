@@ -20,10 +20,9 @@ export default async function handler(req, res) {
   await mongooseConnect();
 
   if (req.method === "POST") {
-    try {
-      await applyRateLimit(req, res, paymentLimiter);
-    } catch {
-      return res.status(429).json({ success: false, message: "Too many order attempts. Please try again later." });
+    const rateCheck = applyRateLimit(paymentLimiter, req);
+    if (rateCheck.rateLimited) {
+      return res.status(429).json({ success: false, message: rateCheck.message });
     }
 
     try {

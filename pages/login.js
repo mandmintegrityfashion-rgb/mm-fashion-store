@@ -94,7 +94,12 @@ export default function LoginPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#5A6171] mb-1.5 uppercase tracking-wider">Password</label>
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="block text-xs font-medium text-[#5A6171] uppercase tracking-wider">Password</label>
+                  <Link href="/forgot-password" className="text-xs text-[#1A5DAB] hover:text-[#4C9EFF] font-medium transition-colors">
+                    Forgot Password?
+                  </Link>
+                </div>
                 <div className={`flex items-center border rounded-xl px-4 py-3 transition-all duration-200 ${focused.password ? "border-[#4C9EFF] shadow-[0_0_0_3px_rgba(76,158,255,0.08)]" : "border-[#D4E3F7]"}`}>
                   <FiLock className="text-[#8E95A2] mr-3 flex-shrink-0" size={16} />
                   <input type={showPassword ? "text" : "password"} name="password" placeholder="Enter your password" value={form.password} onChange={handleChange}

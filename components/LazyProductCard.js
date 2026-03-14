@@ -93,7 +93,7 @@ export function LazyProductCard({ product }) {
             <div className="absolute bottom-0 left-0 right-0 flex gap-2 p-3 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <button
                 onClick={handleAddToCart}
-                className="flex-1 bg-lightGold hover:bg-[#c79f73] text-luxuryGreen font-semibold py-2 px-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
+                className="flex-1 bg-[#4C9EFF] hover:bg-[#1A5DAB] text-white font-semibold py-2 px-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
               >
                 <FaShoppingCart className="text-sm" />
                 Add
@@ -114,7 +114,7 @@ export function LazyProductCard({ product }) {
           {/* Product Info */}
           <div className="flex-1 p-4 flex flex-col justify-between">
             <div>
-              <h3 className="font-semibold text-gray-800 line-clamp-2 group-hover:text-luxuryGreen transition-colors">
+              <h3 className="font-semibold text-gray-800 line-clamp-2 group-hover:text-[#4C9EFF] transition-colors">
                 {product.name}
               </h3>
               {product.category && (
@@ -126,7 +126,7 @@ export function LazyProductCard({ product }) {
             <div className="mt-3">
               {product.promoPrice && product.isPromotion ? (
                 <div className="flex items-center gap-2">
-                  <span className="text-lg font-bold text-luxuryGreen">
+                  <span className="text-lg font-bold text-[#1F2D3D]">
                     ₦{Number(product.promoPrice).toLocaleString()}
                   </span>
                   <span className="text-sm text-gray-400 line-through">
@@ -134,7 +134,7 @@ export function LazyProductCard({ product }) {
                   </span>
                 </div>
               ) : (
-                <span className="text-lg font-bold text-luxuryGreen">
+                <span className="text-lg font-bold text-[#1F2D3D]">
                   ₦{Number(product.price).toLocaleString()}
                 </span>
               )}

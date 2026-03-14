@@ -41,14 +41,14 @@ export default function Reviews() {
 
   return (
     <div className="px-2 sm:px-4">
-      <h2 className="text-3xl font-extrabold mb-6 text-center text-[#546258] tracking-wide">
+      <h2 className="text-3xl font-extrabold mb-6 text-center text-[#1F2D3D] tracking-wide">
         Customer Reviews
       </h2>
       <div className="space-y-6">
         {reviews.map((r, i) => (
           <div
             key={i}
-            className="flex gap-4 border border-gray-200 rounded-xl shadow-md bg-gradient-to-br from-[#F8ECDC] to-[#fffaf5] p-5"
+            className="flex gap-4 border border-gray-200 rounded-xl shadow-md bg-gradient-to-br from-[#E8F0FE] to-[#F7FAFC] p-5"
           >
             {/* Avatar */}
             <img

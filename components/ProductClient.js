@@ -26,6 +26,7 @@ export default function ProductClient({ product }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
+  const [addedToWishlist, setAddedToWishlist] = useState(false);
   const mainImageRef = useRef(null);
   const { addToCart } = useCart();
   const { addToWishlist } = useWishlist();
@@ -135,9 +136,9 @@ export default function ProductClient({ product }) {
               </motion.button>
 
               <div className="flex gap-4">
-                <button onClick={() => addToWishlist(product)}
-                  className="flex items-center gap-2 text-sm text-[#5A6171] hover:text-[#B76E79] transition-colors">
-                  <FiHeart size={16} /> Add to Wishlist
+                <button onClick={() => { addToWishlist(product); setAddedToWishlist(true); setTimeout(() => setAddedToWishlist(false), 2000); }}
+                  className={"flex items-center gap-2 text-sm transition-colors " + (addedToWishlist ? "text-[#4C9EFF] font-semibold" : "text-[#5A6171] hover:text-[#4C9EFF]")}>
+                  <FiHeart size={16} className={addedToWishlist ? "fill-[#4C9EFF]" : ""} /> {addedToWishlist ? "Added to Wishlist!" : "Add to Wishlist"}
                 </button>
               </div>
             </div>

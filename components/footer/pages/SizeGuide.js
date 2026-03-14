@@ -1,7 +1,7 @@
 export default function SizeGuide() {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4 text-[#546258]">Size Guide</h2>
+      <h2 className="text-2xl font-bold mb-4 text-[#1F2D3D]">Size Guide</h2>
       <p className="mb-4">Find your perfect fit with our size guide below:</p>
       <table className="table-auto border-collapse border border-gray-400 w-full text-sm">
         <thead>

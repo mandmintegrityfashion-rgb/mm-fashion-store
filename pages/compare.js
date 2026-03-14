@@ -41,7 +41,7 @@ export default function ComparePage() {
   return (
     <>
       <Head>
-        <title>Compare Products | Chioma Hair</title>
+        <title>Compare Products | M&M Fashion</title>
         <meta
           name="description"
           content="Compare hair products side by side to find the perfect match."

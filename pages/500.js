@@ -13,11 +13,11 @@ export default function Custom500() {
   return (
     <>
       <Head>
-        <title>500 - Server Error | Chioma Hair</title>
+        <title>500 - Server Error | M&M Fashion</title>
         <meta name="description" content="Sorry, something went wrong on our end." />
       </Head>
 
-      <div className={`${playfair.className} bg-gradient-to-b from-white via-[#F8ECDC]/20 to-white min-h-screen flex flex-col items-center justify-center px-4`}>
+      <div className={`${playfair.className} bg-gradient-to-b from-white via-[#E8F0FE]/20 to-white min-h-screen flex flex-col items-center justify-center px-4`}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ export default function Custom500() {
           >
             <Link
               href="/"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-luxuryGreen to-[#6B7A66] text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#4C9EFF] text-white rounded-xl font-semibold hover:bg-[#1A5DAB] hover:shadow-lg transition-all"
             >
               <FiHome size={20} />
               Back to Home
@@ -56,7 +56,7 @@ export default function Custom500() {
 
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-luxuryGreen text-luxuryGreen rounded-lg font-semibold hover:bg-luxuryGreen/10 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#4C9EFF] text-[#4C9EFF] rounded-xl font-semibold hover:bg-[#4C9EFF]/10 transition-all"
             >
               <FiPhone size={20} />
               Contact Support

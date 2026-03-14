@@ -48,6 +48,8 @@ const customerSchema = new Schema(
     isVerified: { type: Boolean, default: false },
     verificationToken: { type: String },
     verificationTokenExpiry: { type: Date },
+    resetPasswordToken: { type: String },
+    resetPasswordExpiry: { type: Date },
 
     cart: [cartItemSchema],
     wishlist: [wishlistItemSchema],

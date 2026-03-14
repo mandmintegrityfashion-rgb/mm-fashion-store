@@ -9,6 +9,7 @@ import Footer from "@/components/footer/Footer";
 import * as FooterPages from "@/components/footer/pages";
 import mongooseConnect from "@/lib/mongodb";
 import Product from "@/models/Product";
+import { Category } from "@/models/Category";
 import ProductCard from "@/components/ProductCard";
 import { Playfair_Display } from "next/font/google";
 import Carousel from "@/components/Carousel";
@@ -218,17 +219,17 @@ export default function Home({ products, categories }) {
 export async function getServerSideProps() {
   await mongooseConnect();
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
   const products = await Product.find().populate("category").lean();
 
   let categories = [];
   try {
-    const categoriesRes = await fetch(`${baseUrl}/api/categories`);
-    if (categoriesRes.ok) {
-      categories = await categoriesRes.json();
-    } else {
-      console.error("Failed to fetch categories:", categoriesRes.status);
-    }
+    const rawCategories = await Category.find().lean();
+    categories = rawCategories.map((cat) => ({
+      ...cat,
+      _id: cat._id.toString(),
+      parent: cat.parent ? cat.parent.toString() : null,
+      image: cat.image?.[0]?.full || cat.image?.[0]?.thumb || "",
+    }));
   } catch (err) {
     console.error("Error fetching categories:", err);
   }

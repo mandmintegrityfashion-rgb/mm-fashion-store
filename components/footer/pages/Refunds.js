@@ -1,7 +1,7 @@
 export default function Refunds() {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4 text-[#546258]">Refund Policy</h2>
+      <h2 className="text-2xl font-bold mb-4 text-[#1F2D3D]">Refund Policy</h2>
       <p className="mb-2">
         We want you to love your purchase. If you’re not satisfied, you can
         request a refund or exchange within <strong>14 days</strong> of

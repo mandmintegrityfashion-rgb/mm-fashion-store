@@ -1,5 +1,5 @@
 /**
- * Service Worker for Chioma Hair
+ * Service Worker for M&M Fashion
  * Minimal - only handles offline support
  * Caching is disabled to use direct DB processing
  */

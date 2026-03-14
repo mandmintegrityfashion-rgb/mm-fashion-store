@@ -18,10 +18,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ success: false, message: "Method not allowed" });
   }
 
-  try {
-    await applyRateLimit(req, res, registerLimiter);
-  } catch {
-    return res.status(429).json({ success: false, message: "Too many registration attempts. Please try again later." });
+  const rateCheck = applyRateLimit(registerLimiter, req);
+  if (rateCheck.rateLimited) {
+    return res.status(429).json({ success: false, message: rateCheck.message });
   }
 
   try {

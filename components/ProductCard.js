@@ -56,9 +56,10 @@ function CircularCountdown({ endDate, size = 36 }) {
 
 export default function ProductCard({ product }) {
   const { addToCart } = useCart();
-  const { addToWishlist } = useWishlist();
+  const { addToWishlist, isInWishlist } = useWishlist();
   const [isHovered, setIsHovered] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
+  const [wishlistFeedback, setWishlistFeedback] = useState(false);
 
   const formatPrice = (price) =>
     new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN", minimumFractionDigits: 0 }).format(price);
@@ -78,6 +79,14 @@ export default function ProductCard({ product }) {
     addToCart(product);
     setAddedToCart(true);
     setTimeout(() => setAddedToCart(false), 1500);
+  };
+
+  const handleAddToWishlist = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToWishlist(product);
+    setWishlistFeedback(true);
+    setTimeout(() => setWishlistFeedback(false), 1500);
   };
 
   return (
@@ -137,10 +146,10 @@ export default function ProductCard({ product }) {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                onClick={(e) => { e.preventDefault(); e.stopPropagation(); addToWishlist(product); }}
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-white shadow-premium hover:bg-rose hover:text-white text-midnight transition-colors"
+                onClick={handleAddToWishlist}
+                className={"w-9 h-9 flex items-center justify-center rounded-full shadow-premium transition-colors " + (isInWishlist(product._id) ? "bg-[#4C9EFF] text-white" : "bg-white hover:bg-[#4C9EFF] hover:text-white text-midnight")}
               >
-                <FiHeart size={15} />
+                <FiHeart size={15} className={isInWishlist(product._id) ? "fill-white" : ""} />
               </motion.button>
               <Link href={`/product/${product._id}`}>
                 <motion.div
@@ -151,6 +160,23 @@ export default function ProductCard({ product }) {
                   <FiEye size={15} />
                 </motion.div>
               </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Wishlist feedback toast */}
+        <AnimatePresence>
+          {wishlistFeedback && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              className="absolute inset-0 flex items-center justify-center bg-black/40 rounded-t-2xl z-20"
+            >
+              <div className="bg-white rounded-xl px-4 py-2 shadow-lg flex items-center gap-2">
+                <FiHeart size={14} className="text-[#4C9EFF] fill-[#4C9EFF]" />
+                <span className="text-xs font-semibold text-[#1F2D3D]">Added to Wishlist!</span>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -188,12 +214,15 @@ export default function ProductCard({ product }) {
           className={`flex justify-center items-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
             addedToCart
               ? "bg-green-50 text-green-700 border border-green-200"
-              : "bg-midnight text-white hover:bg-charcoal"
+              : "bg-[#1F2D3D] text-white hover:bg-[#1A2332]"
           }`}
         >
           <FiShoppingBag size={14} />
           {addedToCart ? "Added!" : "Add to Bag"}
         </motion.button>
+        {addedToCart && (
+          <p className="text-center text-xs text-green-600 font-medium mt-1 animate-pulse">Item added to your bag!</p>
+        )}
       </div>
     </motion.div>
   );

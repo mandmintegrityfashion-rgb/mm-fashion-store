@@ -46,7 +46,7 @@ export default function Faq() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 bg-gradient-to-br from-[#fffdf9] to-[#fdf6ef] rounded-2xl shadow-lg border border-[#e9e2d9]">
-      <h2 className="text-3xl font-extrabold text-center text-[#546258] mb-8 tracking-wide">
+      <h2 className="text-3xl font-extrabold text-center text-[#1F2D3D] mb-8 tracking-wide">
         Frequently Asked Questions
       </h2>
 
@@ -58,13 +58,13 @@ export default function Faq() {
           >
             <button
               onClick={() => toggleFaq(index)}
-              className="w-full flex justify-between items-center px-5 py-4 text-left text-gray-800 font-semibold hover:text-[#546258] transition-colors"
+              className="w-full flex justify-between items-center px-5 py-4 text-left text-gray-800 font-semibold hover:text-[#1F2D3D] transition-colors"
             >
               {faq.question}
               {openIndex === index ? (
                 <ChevronUp className="text-[#C6A15B]" />
               ) : (
-                <ChevronDown className="text-[#546258]" />
+                <ChevronDown className="text-[#1F2D3D]" />
               )}
             </button>
 

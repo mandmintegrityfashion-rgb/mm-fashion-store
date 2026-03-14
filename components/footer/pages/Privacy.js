@@ -1,7 +1,7 @@
 export default function Privacy() {
   return (
     <div className="px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-extrabold mb-6 text-center text-[#546258] tracking-wide">
+      <h2 className="text-3xl font-extrabold mb-6 text-center text-[#1F2D3D] tracking-wide">
         Privacy Policy
       </h2>
 
@@ -12,8 +12,8 @@ export default function Privacy() {
         shopping experience for all our valued customers.
       </p>
 
-      <div className="bg-gradient-to-br from-[#F8ECDC] to-[#fffaf5] p-6 rounded-xl shadow-md mb-6">
-        <h3 className="text-xl font-bold mb-3 text-[#546258]">
+      <div className="bg-gradient-to-br from-[#E8F0FE] to-[#F7FAFC] p-6 rounded-xl shadow-md mb-6">
+        <h3 className="text-xl font-bold mb-3 text-[#1F2D3D]">
           Information We Collect
         </h3>
         <ul className="list-disc pl-6 space-y-2 text-gray-700">
@@ -32,8 +32,8 @@ export default function Privacy() {
         </ul>
       </div>
 
-      <div className="bg-gradient-to-br from-[#fffaf5] to-[#F8ECDC] p-6 rounded-xl shadow-md mb-6">
-        <h3 className="text-xl font-bold mb-3 text-[#546258]">
+      <div className="bg-gradient-to-br from-[#F7FAFC] to-[#E8F0FE] p-6 rounded-xl shadow-md mb-6">
+        <h3 className="text-xl font-bold mb-3 text-[#1F2D3D]">
           How We Use Your Information
         </h3>
         <ul className="list-disc pl-6 space-y-2 text-gray-700">
@@ -53,8 +53,8 @@ export default function Privacy() {
         </ul>
       </div>
 
-      <div className="bg-gradient-to-br from-[#F8ECDC] to-[#fffaf5] p-6 rounded-xl shadow-md mb-6">
-        <h3 className="text-xl font-bold mb-3 text-[#546258]">
+      <div className="bg-gradient-to-br from-[#E8F0FE] to-[#F7FAFC] p-6 rounded-xl shadow-md mb-6">
+        <h3 className="text-xl font-bold mb-3 text-[#1F2D3D]">
           Data Protection & Security
         </h3>
         <p className="text-gray-700 leading-relaxed">
@@ -68,8 +68,8 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="bg-gradient-to-br from-[#fffaf5] to-[#F8ECDC] p-6 rounded-xl shadow-md">
-        <h3 className="text-xl font-bold mb-3 text-[#546258]">Your Rights</h3>
+      <div className="bg-gradient-to-br from-[#F7FAFC] to-[#E8F0FE] p-6 rounded-xl shadow-md">
+        <h3 className="text-xl font-bold mb-3 text-[#1F2D3D]">Your Rights</h3>
         <ul className="list-disc pl-6 space-y-2 text-gray-700">
           <li>
             You may request access to the personal information we hold about
